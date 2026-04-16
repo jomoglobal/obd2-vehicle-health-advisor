@@ -1,0 +1,477 @@
+[
+  {
+    "run_id": "system_prompt_v2_20260415_120439",
+    "case_id": "BMW_001",
+    "vehicle_id": "bmw-335i-2009",
+    "scenario_tag": "diagnosis_accuracy",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "[DRY RUN] No actual API call made.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 2,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 10,
+      "judge_notes": "DRY RUN \u2014 no actual scoring"
+    },
+    "passed": true,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_120439",
+    "case_id": "BMW_002",
+    "vehicle_id": "bmw-335i-2009",
+    "scenario_tag": "diagnosis_accuracy",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "[DRY RUN] No actual API call made.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 2,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 10,
+      "judge_notes": "DRY RUN \u2014 no actual scoring"
+    },
+    "passed": true,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_120439",
+    "case_id": "BMW_003",
+    "vehicle_id": "bmw-335i-2009",
+    "scenario_tag": "diagnosis_accuracy",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "[DRY RUN] No actual API call made.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 2,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 10,
+      "judge_notes": "DRY RUN \u2014 no actual scoring"
+    },
+    "passed": true,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_120439",
+    "case_id": "BMW_004",
+    "vehicle_id": "bmw-335i-2009",
+    "scenario_tag": "urgency_calibration",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "[DRY RUN] No actual API call made.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 2,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 10,
+      "judge_notes": "DRY RUN \u2014 no actual scoring"
+    },
+    "passed": true,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_120439",
+    "case_id": "BMW_005",
+    "vehicle_id": "bmw-335i-2009",
+    "scenario_tag": "urgency_calibration",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "[DRY RUN] No actual API call made.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 2,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 10,
+      "judge_notes": "DRY RUN \u2014 no actual scoring"
+    },
+    "passed": true,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_120439",
+    "case_id": "BMW_006",
+    "vehicle_id": "bmw-335i-2009",
+    "scenario_tag": "data_completeness",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "[DRY RUN] No actual API call made.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 2,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 10,
+      "judge_notes": "DRY RUN \u2014 no actual scoring"
+    },
+    "passed": true,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_120439",
+    "case_id": "BMW_007",
+    "vehicle_id": "bmw-335i-2009",
+    "scenario_tag": "data_completeness",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "[DRY RUN] No actual API call made.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 2,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 10,
+      "judge_notes": "DRY RUN \u2014 no actual scoring"
+    },
+    "passed": true,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_120439",
+    "case_id": "BMW_008",
+    "vehicle_id": "bmw-335i-2009",
+    "scenario_tag": "diagnosis_accuracy",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "[DRY RUN] No actual API call made.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 2,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 10,
+      "judge_notes": "DRY RUN \u2014 no actual scoring"
+    },
+    "passed": true,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_120439",
+    "case_id": "BMW_009",
+    "vehicle_id": "bmw-335i-2009",
+    "scenario_tag": "urgency_calibration",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "[DRY RUN] No actual API call made.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 2,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 10,
+      "judge_notes": "DRY RUN \u2014 no actual scoring"
+    },
+    "passed": true,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_120439",
+    "case_id": "BMW_010",
+    "vehicle_id": "bmw-335i-2009",
+    "scenario_tag": "diagnosis_accuracy",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "[DRY RUN] No actual API call made.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 2,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 10,
+      "judge_notes": "DRY RUN \u2014 no actual scoring"
+    },
+    "passed": true,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_120439",
+    "case_id": "HONDA_001",
+    "vehicle_id": "honda-fit-2015",
+    "scenario_tag": "diagnosis_accuracy",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "[DRY RUN] No actual API call made.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 2,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 10,
+      "judge_notes": "DRY RUN \u2014 no actual scoring"
+    },
+    "passed": true,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_120439",
+    "case_id": "HONDA_002",
+    "vehicle_id": "honda-fit-2015",
+    "scenario_tag": "diagnosis_accuracy",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "[DRY RUN] No actual API call made.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 2,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 10,
+      "judge_notes": "DRY RUN \u2014 no actual scoring"
+    },
+    "passed": true,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_120439",
+    "case_id": "HONDA_003",
+    "vehicle_id": "honda-fit-2015",
+    "scenario_tag": "urgency_calibration",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "[DRY RUN] No actual API call made.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 2,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 10,
+      "judge_notes": "DRY RUN \u2014 no actual scoring"
+    },
+    "passed": true,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_120439",
+    "case_id": "HONDA_004",
+    "vehicle_id": "honda-fit-2015",
+    "scenario_tag": "data_completeness",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "[DRY RUN] No actual API call made.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 2,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 10,
+      "judge_notes": "DRY RUN \u2014 no actual scoring"
+    },
+    "passed": true,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_120439",
+    "case_id": "HONDA_005",
+    "vehicle_id": "honda-fit-2015",
+    "scenario_tag": "diagnosis_accuracy",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "[DRY RUN] No actual API call made.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 2,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 10,
+      "judge_notes": "DRY RUN \u2014 no actual scoring"
+    },
+    "passed": true,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_120439",
+    "case_id": "HONDA_006",
+    "vehicle_id": "honda-fit-2015",
+    "scenario_tag": "data_completeness",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "[DRY RUN] No actual API call made.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 2,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 10,
+      "judge_notes": "DRY RUN \u2014 no actual scoring"
+    },
+    "passed": true,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_120439",
+    "case_id": "HONDA_007",
+    "vehicle_id": "honda-fit-2015",
+    "scenario_tag": "urgency_calibration",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "[DRY RUN] No actual API call made.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 2,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 10,
+      "judge_notes": "DRY RUN \u2014 no actual scoring"
+    },
+    "passed": true,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_120439",
+    "case_id": "HONDA_008",
+    "vehicle_id": "honda-fit-2015",
+    "scenario_tag": "diagnosis_accuracy",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "[DRY RUN] No actual API call made.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 2,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 10,
+      "judge_notes": "DRY RUN \u2014 no actual scoring"
+    },
+    "passed": true,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_120439",
+    "case_id": "HONDA_009",
+    "vehicle_id": "honda-fit-2015",
+    "scenario_tag": "data_completeness",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "[DRY RUN] No actual API call made.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 2,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 10,
+      "judge_notes": "DRY RUN \u2014 no actual scoring"
+    },
+    "passed": true,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_120439",
+    "case_id": "TUNDRA_001",
+    "vehicle_id": "tundra-2007",
+    "scenario_tag": "diagnosis_accuracy",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "[DRY RUN] No actual API call made.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 2,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 10,
+      "judge_notes": "DRY RUN \u2014 no actual scoring"
+    },
+    "passed": true,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_120439",
+    "case_id": "TUNDRA_002",
+    "vehicle_id": "tundra-2007",
+    "scenario_tag": "diagnosis_accuracy",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "[DRY RUN] No actual API call made.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 2,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 10,
+      "judge_notes": "DRY RUN \u2014 no actual scoring"
+    },
+    "passed": true,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_120439",
+    "case_id": "TUNDRA_003",
+    "vehicle_id": "tundra-2007",
+    "scenario_tag": "urgency_calibration",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "[DRY RUN] No actual API call made.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 2,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 10,
+      "judge_notes": "DRY RUN \u2014 no actual scoring"
+    },
+    "passed": true,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_120439",
+    "case_id": "TUNDRA_004",
+    "vehicle_id": "tundra-2007",
+    "scenario_tag": "urgency_calibration",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "[DRY RUN] No actual API call made.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 2,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 10,
+      "judge_notes": "DRY RUN \u2014 no actual scoring"
+    },
+    "passed": true,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_120439",
+    "case_id": "TUNDRA_005",
+    "vehicle_id": "tundra-2007",
+    "scenario_tag": "diagnosis_accuracy",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "[DRY RUN] No actual API call made.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 2,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 10,
+      "judge_notes": "DRY RUN \u2014 no actual scoring"
+    },
+    "passed": true,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_120439",
+    "case_id": "TUNDRA_006",
+    "vehicle_id": "tundra-2007",
+    "scenario_tag": "urgency_calibration",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "[DRY RUN] No actual API call made.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 2,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 10,
+      "judge_notes": "DRY RUN \u2014 no actual scoring"
+    },
+    "passed": true,
+    "error": null
+  }
+]

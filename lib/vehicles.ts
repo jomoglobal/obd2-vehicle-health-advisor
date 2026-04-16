@@ -1,4 +1,5 @@
 export type FuelSystem = "MAF" | "MAP";
+export type FuelType = "gasoline" | "flex-fuel";
 export type BankCount = 1 | 2;
 
 export interface VehicleConfig {
@@ -10,9 +11,12 @@ export interface VehicleConfig {
   turbocharged: boolean;
   bankCount: BankCount;
   fuelSystem: FuelSystem;
+  fuelType: FuelType;
   hasEGR: boolean;
   knownQuirks: string[];
   expectedPIDs: string[];
+  // PIDs that are known to be inaccessible on this vehicle via generic OBD2
+  inaccessiblePIDs?: string[];
 }
 
 export const vehicles: VehicleConfig[] = [
@@ -21,15 +25,23 @@ export const vehicles: VehicleConfig[] = [
     make: "Toyota",
     model: "Tundra",
     year: 2007,
-    engine: "5.7L V8 (2UR-FSE)",
+    engine: "4.0L V6 (1GR-FE)",
     turbocharged: false,
     bankCount: 2,
     fuelSystem: "MAF",
+    fuelType: "gasoline",
     hasEGR: false,
     knownQuirks: [
       "Secondary air injection pump common failure after 100k miles",
       "Bank 2 O2 sensor wiring prone to heat damage near exhaust manifold",
       "EVAP system leak codes triggered by aftermarket gas caps",
+      "Generic OBD2 scanners (ELM327) often fail to log MAF, upstream O2, and STFT B2 on this vehicle — missing PIDs are a tool limitation, not necessarily a sensor fault",
+    ],
+    inaccessiblePIDs: [
+      "0110", // MAF — frequently unreported by ELM327 on 1GR-FE
+      "0108", // STFT B2 — often missing from generic OBD2 captures on this engine
+      "0114", // O2 B1S1 — upstream O2 sensors not reliably reported via generic OBD2
+      "011B", // O2 B2S1 — same
     ],
     expectedPIDs: [
       "0104", // Calculated engine load
@@ -59,13 +71,18 @@ export const vehicles: VehicleConfig[] = [
     turbocharged: true,
     bankCount: 2,
     fuelSystem: "MAF",
+    fuelType: "flex-fuel",
     hasEGR: false,
     knownQuirks: [
-      "STFT/LTFT values reported on generic OBD2 profile are scaled differently than native BMW protocol — add ~2% correction factor",
-      "High-pressure fuel pump (HPFP) failure common; watch for P0087 and lean codes",
-      "Wastegate rattle at cold start; not a fault condition",
-      "Charge pipe blowout under boost; causes sudden lean condition",
-      "Injector carbon buildup on GDI system — no port wash; requires walnut blasting",
+      "HPFP (high-pressure fuel pump) failure is one of the most common N54 faults — symptoms are lean codes (P0087, P2177, P2179), stalling under boost, and rough running at high load; rail pressure drop under WOT is the key diagnostic signal",
+      "HPFP low-pressure feed must be 65–75 PSI at idle and hold under boost; if low-pressure drops below 55 PSI under load, the HPFP cannot build adequate rail pressure regardless of pump condition",
+      "Runs flex fuel — ethanol content changes every fill-up; AFR targets, fuel trims, and timing advance all shift with ethanol content; always note ethanol % when interpreting fuel trim data",
+      "At high ethanol blends (E50+), STFT/LTFT will read persistently negative (rich correction) on a non-ethanol-compensating tune — this is expected, not a fault",
+      "STFT/LTFT values reported on generic OBD2 profile are scaled differently than native BMW protocol — add ~2% correction factor when comparing to MHD or NCS logs",
+      "Wastegate rattle at cold start is a known benign N54 characteristic — not a fault condition",
+      "Charge pipe blowout under boost causes sudden lean spike followed by boost loss; look for STFT max spike >20% with simultaneous boost pressure drop",
+      "Injector carbon buildup on GDI system — no port wash; intake valves accumulate carbon over time; symptoms are lean idle trims that normalize under load; requires walnut blasting every 40–60k miles",
+      "Per-cylinder timing knock retard (visible via MHD) is more diagnostic than aggregate STFT — a single cylinder pulling timing while others are normal points to an injector or compression issue on that cylinder",
     ],
     expectedPIDs: [
       "0104", // Calculated engine load
@@ -97,7 +114,11 @@ export const vehicles: VehicleConfig[] = [
     turbocharged: false,
     bankCount: 1,
     fuelSystem: "MAP",
+    fuelType: "gasoline",
     hasEGR: true,
+    inaccessiblePIDs: [
+      "010D", // Vehicle speed — Honda Fit does not expose via generic OBD2; returns 0
+    ],
     knownQuirks: [
       "Honda uses a proprietary OBD2 profile; some generic scanners misread MAP sensor values",
       "EGR valve sticky at low mileage intervals — monitor P0400 family codes",

@@ -1,0 +1,477 @@
+[
+  {
+    "run_id": "system_prompt_v2_20260415_121227",
+    "case_id": "BMW_001",
+    "vehicle_id": "bmw-335i-2009",
+    "scenario_tag": "diagnosis_accuracy",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "**Urgency: HIGH**\n\n**Summary**  \nThe vehicle exhibits significant fuel trim deviations with both short-term and long-term fuel trims exceeding \u00b110%, indicating a potential fueling or air metering issue that should be addressed promptly.\n\n**Findings**  \n- **STFT B1 (0106):** Last 14.1%, Mean 13.8% \u2014 Exceeds \u00b110%, indicating a lean condition.\n- **STFT B2 (0108):** Last 13.3%, Mean 12.7% \u2014 Exceeds \u00b110%, indicating a lean condition.\n- **LTFT B1 (0107):** Last 12.5%, Mean 12.9% \u2014 Exceeds \u00b110%, indicating a chronic lean condition.\n- **LTFT B2 (0109):** Last 11.7%, Mean 11.4% \u2014 Exceeds \u00b110%, indicating a chronic lean condition.\n- **O2 Sensor B1S1 (0114):** Std 0.28V \u2014 Within normal oscillation range, but mean voltage suggests lean condition.\n- **O2 Sensor B2S1 (011B):** Std 0.27V \u2014 Within normal oscillation range, but mean voltage suggests lean condition.\n- **MAF (0110):** Last 14.2 g/s \u2014 Within expected range for a 3.0L engine, but check for contamination or air leaks.\n\n**Root Cause Assessment**  \nThe symmetric lean condition across both banks suggests a system-wide issue rather than a bank-specific problem. Possible causes include:\n- **MAF Sensor Contamination:** A dirty or faulty MAF sensor can cause incorrect air mass readings, leading to lean conditions.\n- **Vacuum Leak:** A vacuum leak post-MAF sensor can introduce unmetered air, causing the engine to run lean.\n- **Fuel Pressure Issue:** Insufficient fuel pressure can lead to lean conditions across both banks.\n\n**Recommended Next Steps**  \n1. **Inspect and Clean/Replace MAF Sensor:** Check for contamination or damage that could affect readings.\n2. **Check for Vacuum Leaks:** Inspect all vacuum lines and intake components for leaks that could introduce unmetered air.\n3. **Test Fuel Pressure:** Ensure the fuel pressure is within specifications to rule out fuel delivery issues.\n4. **Review O2 Sensor Data:** Although they are oscillating, ensure they are not sluggish or faulty, contributing to incorrect trim adjustments.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 1,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 0,
+      "vehicle_quirk_cited": 0,
+      "total": 5,
+      "judge_notes": "Agent identified lean condition but failed to connect low fuel pressure to HPFP failure or mention BMW N54 quirk."
+    },
+    "passed": false,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_121227",
+    "case_id": "BMW_002",
+    "vehicle_id": "bmw-335i-2009",
+    "scenario_tag": "diagnosis_accuracy",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "**Urgency: HIGH**\n\n**Summary**  \nThe vehicle exhibits significant fuel trim deviations on both banks, indicating a potential fueling issue that should be addressed promptly. Additionally, the sluggish upstream O2 sensor response suggests a possible sensor fault or contamination.\n\n**Findings**\n- **Fuel Trims (0106/0108):** Both banks show STFT values exceeding \u00b110% at times (B1 max 24.2%, B2 max 22.7%), indicating a potential lean condition affecting both banks.\n- **O2 Sensor (0114/011B):** Upstream O2 sensors have a low standard deviation (std = 0.31 for B1 and B2), suggesting sluggish response and potential sensor degradation.\n- **MAF (0110):** The MAF readings are within expected ranges for this engine size, but given the fuel trim issues, MAF contamination cannot be ruled out.\n- **MAP (010B):** The MAP readings are within expected ranges for a turbocharged engine, with no signs of overboost.\n\n**Root Cause Assessment**\n- **Primary Diagnosis:** The symmetric lean condition across both banks suggests a system-wide issue such as MAF sensor contamination or a fuel delivery problem (e.g., low fuel pressure or HPFP issue, which is a known concern for the N54 engine).\n- **Alternative Diagnosis:** The sluggish O2 sensor response could be contributing to inaccurate fuel trim adjustments, exacerbating the lean condition.\n\n**Recommended Next Steps**\n1. **Inspect and Clean MAF Sensor:** Check for contamination and clean if necessary, as this is a common cause of symmetric lean conditions.\n2. **Check Fuel Pressure:** Verify fuel pressure to rule out issues with the fuel pump or HPFP, especially given the N54's known HPFP issues.\n3. **Replace Upstream O2 Sensors:** Given the sluggish response, replacing the upstream O2 sensors may improve fuel trim accuracy.\n4. **Inspect for Vacuum Leaks:** Although less likely given the symmetric nature of the issue, a thorough inspection for vacuum leaks is prudent.\n5. **Schedule Service:** Given the potential for a fueling issue, schedule a service appointment this week to address these concerns before they lead to more severe engine performance issues.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 1,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 0,
+      "total": 7,
+      "judge_notes": "Agent missed the charge pipe blow-out quirk and did not connect IAT spike to the event."
+    },
+    "passed": true,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_121227",
+    "case_id": "BMW_003",
+    "vehicle_id": "bmw-335i-2009",
+    "scenario_tag": "diagnosis_accuracy",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "**Urgency: HIGH**\n\n**Summary**  \nThe vehicle exhibits significant fuel trim deviations on both banks, indicating a potential fueling issue that should be addressed promptly. Additionally, the MAF sensor readings suggest possible contamination or malfunction.\n\n**Findings**\n- **Fuel Trims (0106/0107 and 0108/0109):** Both banks show elevated LTFT values (B1: 11.3%, B2: 10.9%), which are above the acceptable \u00b110% threshold, indicating a chronic lean condition.\n- **MAF Sensor (0110):** The mean MAF reading is 8.2 g/s, with a high standard deviation of 6.1, suggesting erratic readings. The maximum value of 24.2 g/s is unusually high for idle, indicating possible contamination or sensor fault.\n- **O2 Sensors (0114/0115 and 011B/011C):** Upstream O2 sensors (0114, 011B) show low mean voltages (0.48V and 0.46V) with high standard deviations (0.26 and 0.25), suggesting sluggish response or potential failure.\n\n**Root Cause Assessment**\n- The symmetric lean condition across both banks suggests a system-wide issue rather than a bank-specific fault. This points towards a potential MAF sensor issue, which could be contaminated or malfunctioning, leading to incorrect air mass readings and subsequent lean fuel trims.\n- The erratic MAF readings further support the possibility of a MAF sensor fault or contamination.\n- The sluggish response of the upstream O2 sensors could exacerbate the lean condition by failing to provide accurate feedback for fuel mixture adjustments.\n\n**Recommended Next Steps**\n1. **Inspect and Clean/Replace MAF Sensor:** Check for contamination or damage. Clean the sensor with appropriate MAF cleaner or replace if necessary.\n2. **Check for Vacuum Leaks:** Perform a smoke test to identify any vacuum leaks that could contribute to the lean condition.\n3. **Test Fuel Pressure:** Ensure the fuel pressure is within specifications to rule out fuel delivery issues.\n4. **Inspect O2 Sensors:** Evaluate the upstream O2 sensors for proper operation. Replace if they are found to be sluggish or faulty.\n5. **Drive to a Shop:** Given the high urgency, schedule a visit to a qualified technician this week to address these issues and prevent potential engine damage.",
+    "scores": {
+      "urgency_correct": 1,
+      "root_cause_identified": 0,
+      "bogus_value_handled": 1,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 0,
+      "total": 4,
+      "judge_notes": "Agent misidentified urgency and root cause, missing GDI carbon buildup quirk."
+    },
+    "passed": false,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_121227",
+    "case_id": "BMW_004",
+    "vehicle_id": "bmw-335i-2009",
+    "scenario_tag": "urgency_calibration",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "**Urgency: NORMAL**\n\n**Summary**  \nAll monitored parameters for the 2009 BMW 335i with the N54 engine are within expected ranges. No immediate action is needed as the vehicle's sensors and fuel trims are operating normally.\n\n**Findings**\n- **Fuel Trims (STFT/LTFT)**: Both banks show STFT and LTFT values within \u00b15%, indicating balanced and efficient fuel delivery.\n  - STFT B1 (0106): Mean 1.8%\n  - STFT B2 (0108): Mean 1.5%\n  - LTFT B1 (0107): Mean 1.4%\n  - LTFT B2 (0109): Mean 0.9%\n- **O2 Sensors**: Both upstream and downstream sensors are functioning correctly.\n  - Upstream B1 (0114): Std 0.28V, indicating healthy oscillation.\n  - Upstream B2 (011B): Std 0.27V, indicating healthy oscillation.\n  - Downstream B1 (0115): Std 0.04V, steady as expected.\n  - Downstream B2 (011C): Std 0.04V, steady as expected.\n- **MAP Sensor (010B)**: Mean 88 kPa, within normal range for a turbocharged engine.\n- **MAF Sensor (0110)**: Mean 5.0 g/s, appropriate for idle conditions in a 3.0L engine.\n- **Coolant Temperature (0105)**: Mean 35\u00b0C, which is low but could be due to a cold start or short trip. Monitor for normal operating temperature (85\u2013105\u00b0C) during longer drives.\n\n**Root Cause Assessment**\n- No issues detected. All sensor readings and fuel trims are within normal operating ranges, indicating the engine is running efficiently without any detected faults.\n\n**Recommended Next Steps**\n1. Continue regular maintenance and monitoring. No immediate service is required.\n2. If the coolant temperature remains low during extended driving, verify the thermostat operation and coolant sensor accuracy.\n3. Keep an eye on any changes in performance or dashboard warning lights, and perform periodic checks to ensure ongoing health.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 2,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 0,
+      "total": 8,
+      "judge_notes": "Agent correctly assessed normal urgency and identified no issues, but missed citing the known N54 wastegate rattle quirk."
+    },
+    "passed": true,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_121227",
+    "case_id": "BMW_005",
+    "vehicle_id": "bmw-335i-2009",
+    "scenario_tag": "urgency_calibration",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "**Urgency: NORMAL**\n\n**Summary**  \nAll sensors are operating within expected ranges for the 2009 BMW 335i with the N54 engine. Fuel trims and O2 sensor readings indicate a healthy engine with no immediate issues.\n\n**Findings**  \n- **Fuel Trims (0106, 0107, 0108, 0109):**  \n  - STFT B1 (0106): Mean 1.2%, within \u00b15% range.\n  - LTFT B1 (0107): Mean 2.2%, within \u00b15% range.\n  - STFT B2 (0108): Mean 0.6%, within \u00b15% range.\n  - LTFT B2 (0109): Mean 1.4%, within \u00b15% range.\n  - No significant asymmetry between banks; both banks are balanced.\n\n- **O2 Sensors (0114, 0115, 011B, 011C):**  \n  - Upstream B1 (0114): Mean 0.48V, std 0.28V, indicating healthy oscillation.\n  - Downstream B1 (0115): Mean 0.74V, std 0.03V, indicating stable catalytic converter performance.\n  - Upstream B2 (011B): Mean 0.47V, std 0.27V, indicating healthy oscillation.\n  - Downstream B2 (011C): Mean 0.73V, std 0.03V, indicating stable catalytic converter performance.\n\n- **MAP (010B):** Mean 103 kPa, within expected range for a turbocharged engine.\n\n- **MAF (0110):** Mean 18.4 g/s, appropriate for a 3.0L turbocharged engine at the observed RPM range.\n\n- **IAT (010F):** Mean 28\u00b0C, within normal operating range.\n\n**Root Cause Assessment**  \nNo issues detected. All monitored parameters are within normal operating ranges, suggesting the engine is functioning properly without any immediate concerns.\n\n**Recommended Next Steps**  \n1. Continue regular maintenance and monitoring.  \n2. No immediate action required based on current data.  \n3. If any symptoms or warning lights appear, re-evaluate with updated data.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 2,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 10,
+      "judge_notes": "Agent correctly identified normal operation with no unnecessary urgency."
+    },
+    "passed": true,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_121227",
+    "case_id": "BMW_006",
+    "vehicle_id": "bmw-335i-2009",
+    "scenario_tag": "data_completeness",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "**Urgency: NORMAL**\n\n**Summary**  \nAll sensors are operating within expected ranges for the 2009 BMW 335i with the N54 engine. There are no immediate issues requiring attention.\n\n**Findings**\n- **Coolant Temperature (PID 0105):** Value is 255\u00b0C with std = 0, indicating a sensor or adapter artifact. This is not a real overheating condition.\n- **Fuel Trims (PIDs 0106/0107 and 0108/0109):** STFT and LTFT values for both banks are within \u00b15%, indicating balanced fueling and no significant air/fuel mixture issues.\n- **O2 Sensors (PIDs 0114/0115 and 011B/011C):** Upstream sensors (S1) show healthy oscillation with std ~0.27V, and downstream sensors (S2) are steady, indicating normal catalytic converter function.\n- **MAP (PID 010B):** Values are within the expected range for a turbocharged engine, indicating no overboost condition.\n- **MAF (PID 0110):** Values are consistent with expected airflow for this engine size, confirming proper air intake measurement.\n\n**Root Cause Assessment**\n- The coolant temperature reading of 255\u00b0C is a known artifact from ELM327 adapters and does not indicate an actual overheating issue.\n- All other sensor readings are within normal operating ranges, suggesting the engine is functioning properly without any immediate concerns.\n\n**Recommended Next Steps**\n1. **Monitor Coolant Temperature Sensor:** Verify the sensor's connection and consider replacing the ELM327 adapter if the issue persists.\n2. **Routine Maintenance:** Continue regular vehicle maintenance and monitoring to ensure ongoing engine health.\n3. **No Immediate Action Required:** Given the normal sensor readings, no further diagnostic actions are necessary at this time.",
+    "scores": {
+      "urgency_correct": 1,
+      "root_cause_identified": 2,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 9,
+      "judge_notes": "Agent correctly identified the bogus ECT reading and handled it appropriately, but urgency should be MEDIUM, not NORMAL."
+    },
+    "passed": true,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_121227",
+    "case_id": "BMW_007",
+    "vehicle_id": "bmw-335i-2009",
+    "scenario_tag": "data_completeness",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "**Urgency: NORMAL**\n\n**Summary**  \nAll sensors are operating within healthy ranges for the 2009 BMW 335i with the N54 engine. Fuel trims and O2 sensor readings are normal, indicating no immediate issues.\n\n**Findings**\n- **Fuel Trims (STFT/LTFT):** \n  - Bank 1 STFT (0106): Mean 3.8%, within normal \u00b15% range.\n  - Bank 2 STFT (0107): Mean 3.2%, within normal \u00b15% range.\n  - Bank 1 LTFT (0108): Mean 3.2%, within normal \u00b15% range.\n  - Bank 2 LTFT (0109): Mean 2.4%, within normal \u00b15% range.\n- **O2 Sensors:**\n  - Upstream Bank 1 (0114): Mean 0.46V, std 0.27V, indicating healthy oscillation.\n  - Downstream Bank 1 (0115): Mean 0.72V, std 0.03V, indicating stable catalytic converter performance.\n  - Upstream Bank 2 (011B): Mean 0.45V, std 0.27V, indicating healthy oscillation.\n  - Downstream Bank 2 (011C): Mean 0.71V, std 0.03V, indicating stable catalytic converter performance.\n- **MAP (010B):** Mean 100 kPa, within expected range for turbocharged operation.\n- **IAT (010F):** Mean 25\u00b0C, within normal operating range.\n\n**Root Cause Assessment**\n- No root cause for concern as all parameters are within expected ranges. The vehicle appears to be operating normally with no signs of sensor failure or engine performance issues.\n\n**Recommended Next Steps**\n1. Continue regular maintenance and monitoring as per the vehicle's service schedule.\n2. If any symptoms arise (e.g., performance issues, check engine light), perform another diagnostic check to ensure no new issues have developed.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 0,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 0,
+      "vehicle_quirk_cited": 2,
+      "total": 6,
+      "judge_notes": "Agent failed to note missing MAF data, critical for MAF-based fueling assessment."
+    },
+    "passed": false,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_121227",
+    "case_id": "BMW_008",
+    "vehicle_id": "bmw-335i-2009",
+    "scenario_tag": "diagnosis_accuracy",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "**Urgency: HIGH**\n\n**Summary**  \nThe vehicle exhibits a high long-term fuel trim (LTFT) on both banks, indicating a potential chronic fueling issue. Additionally, the mass airflow (MAF) sensor data suggests possible contamination or restriction.\n\n**Findings**\n- **LTFT (0108/0109)**: Both banks show positive LTFT values (2.3% and 1.6%), which are within acceptable limits but suggest a slight lean condition.\n- **STFT (0106/0107)**: Both banks show negative STFT values (-6.3% and -7.8%), indicating the ECU is compensating for a perceived rich condition in real-time.\n- **MAF (0110)**: The MAF reading at idle is 14.2 g/s, which is slightly high for a 3.0L engine, suggesting possible contamination or an air filter issue.\n- **O2 Sensors (0114/0115)**: Upstream O2 sensor voltages are stable but slightly high (0.45V), which could indicate a rich condition that the ECU is trying to correct.\n- **Boost Pressure (010B)**: MAP reading is 98 kPa, which is within expected range for a turbocharged engine at idle, but the variance suggests potential boost control issues.\n\n**Root Cause Assessment**\n- The combination of high LTFT and negative STFT suggests a chronic lean condition that the ECU is over-correcting. This could be due to MAF sensor contamination or an air intake restriction.\n- The stable but slightly high O2 sensor readings support the possibility of a rich condition being corrected by the ECU.\n- The variance in MAP readings could indicate an issue with boost control, although it is not immediately critical.\n\n**Recommended Next Steps**\n1. **Inspect and Clean MAF Sensor**: Check for contamination and clean the MAF sensor to ensure accurate air mass readings.\n2. **Check Air Intake System**: Inspect the air filter and intake system for any restrictions or leaks that could affect airflow.\n3. **Monitor Fuel Pressure**: Verify fuel pressure to rule out any issues with fuel delivery that could cause lean conditions.\n4. **Inspect Boost Control System**: Check the wastegate and boost control solenoid for proper operation to ensure stable boost levels.\n5. **Re-evaluate O2 Sensor Performance**: If issues persist after addressing MAF and intake, consider testing the O2 sensors for proper function.\n\nAddress these issues promptly to prevent further complications and ensure optimal engine performance.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 0,
+      "bogus_value_handled": 0,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 6,
+      "judge_notes": "Agent failed to identify the stuck O2 sensor as the root cause, focusing instead on MAF and intake issues."
+    },
+    "passed": false,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_121227",
+    "case_id": "BMW_009",
+    "vehicle_id": "bmw-335i-2009",
+    "scenario_tag": "urgency_calibration",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "**Urgency: HIGH**\n\n**Summary**  \nThe vehicle is experiencing an overboost condition, as indicated by the MAP sensor readings, which could lead to engine damage if not addressed promptly. Fuel trims are within normal limits, suggesting no immediate fueling issues.\n\n**Findings**\n- **MAP (PID 010B):** Last reading at 228 kPa, with a max of 248 kPa. This is significantly above the expected range for a stock N54 engine, indicating an overboost condition. The standard deviation of 42 kPa suggests fluctuating boost levels, which could be due to a wastegate or boost control solenoid issue.\n- **O2 Sensor Upstream (PID 0114 & 011B):** Both sensors show a low standard deviation (0.27 and 0.26 respectively), indicating sluggish response. However, the mean values (0.46V and 0.44V) are within expected oscillation ranges.\n- **O2 Sensor Downstream (PID 0115 & 011C):** Both sensors are steady with low variance, indicating healthy catalytic converter function.\n- **Fuel Trims (PIDs 0106, 0107, 0108, 0109):** All trims are within \u00b15%, suggesting no significant fueling issues or vacuum leaks.\n\n**Root Cause Assessment**\n- The primary issue is an overboost condition likely caused by a malfunctioning wastegate or boost control solenoid. The high MAP readings are consistent with this diagnosis.\n- The sluggish upstream O2 sensor readings could be a secondary issue but are not critical at this time.\n\n**Recommended Next Steps**\n1. **Inspect the Wastegate and Boost Control Solenoid:** Check for mechanical binding or electrical faults that could cause the wastegate to remain closed longer than intended.\n2. **Verify Charge Pipe and Intercooler Integrity:** Ensure there are no leaks that could affect boost control.\n3. **Monitor O2 Sensor Performance:** Although not critical, consider replacing the upstream O2 sensors if sluggish response persists, as this can affect long-term fuel efficiency and emissions.\n4. **Schedule a Professional Diagnostic:** Given the overboost condition, professional inspection and repair are advised to prevent potential engine damage.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 2,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 10,
+      "judge_notes": "Agent correctly identified overboost as high urgency and pinpointed wastegate/boost solenoid as root cause."
+    },
+    "passed": true,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_121227",
+    "case_id": "BMW_010",
+    "vehicle_id": "bmw-335i-2009",
+    "scenario_tag": "diagnosis_accuracy",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "**Urgency: HIGH**\n\n**Summary**  \nThe vehicle exhibits significant positive short-term fuel trims on both banks, indicating a potential lean condition. Additionally, the upstream O2 sensor on Bank 1 shows sluggish behavior, which could contribute to inaccurate air-fuel mixture adjustments.\n\n**Findings**\n- **STFT Bank 1 (PID 0106):** Last value 14.8%, mean 14.2%. Expected range is \u00b15%. This indicates a lean condition.\n- **STFT Bank 2 (PID 0107):** Last value 13.3%, mean 13.1%. Also indicates a lean condition.\n- **LTFT Bank 1 (PID 0108):** Last value 1.6%, mean 1.4%. Within normal range, suggesting the issue is more acute or recent.\n- **LTFT Bank 2 (PID 0109):** Last value 2.3%, mean 2.2%. Within normal range.\n- **Upstream O2 Sensor Bank 1 (PID 0114):** Mean 0.44V, std 0.26V. The standard deviation is low, indicating sluggish response.\n- **Upstream O2 Sensor Bank 2 (PID 011B):** Mean 0.47V, std 0.27V. Similar sluggish behavior.\n- **Downstream O2 Sensors (PIDs 0115, 011C):** Both show expected steady behavior, indicating catalytic converters are likely functioning correctly.\n\n**Root Cause Assessment**\n- The simultaneous lean condition on both banks suggests a system-wide issue rather than a bank-specific fault. Possible causes include a contaminated MAF sensor, air intake leaks, or a fuel delivery problem such as low fuel pressure.\n- The sluggish upstream O2 sensors may not be accurately reporting the air-fuel ratio, leading to improper fuel trim adjustments.\n\n**Recommended Next Steps**\n1. **Inspect and Clean MAF Sensor (PID 0110):** Ensure the MAF sensor is clean and functioning correctly, as contamination can lead to incorrect air mass readings.\n2. **Check for Intake Leaks:** Inspect the intake system for any leaks that could introduce unmetered air, contributing to the lean condition.\n3. **Fuel Pressure Test:** Verify that the fuel pressure is within specification to rule out fuel delivery issues.\n4. **Replace Upstream O2 Sensors:** Consider replacing the upstream O2 sensors if cleaning the MAF and checking for leaks do not resolve the issue, as their sluggish response may be contributing to the problem.\n5. **Drive to Shop:** Given the high urgency, address these issues promptly to prevent potential engine damage.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 0,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 8,
+      "judge_notes": "Agent incorrectly diagnosed a system-wide issue, missing the bank-specific lean condition."
+    },
+    "passed": true,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_121227",
+    "case_id": "HONDA_001",
+    "vehicle_id": "honda-fit-2015",
+    "scenario_tag": "diagnosis_accuracy",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "**Urgency: HIGH**\n\n**Summary**  \nThe vehicle exhibits high positive short-term and long-term fuel trims, indicating a potential air-fuel mixture issue that should be addressed promptly.\n\n**Findings**\n- **STFT (0106)**: Last value 16.4%, mean 15.8%. Expected range is \u00b15%. This indicates a significant lean condition.\n- **LTFT (0107)**: Last value 14.1%, mean 13.6%. Expected range is \u00b15%. Persistent high LTFT suggests a chronic issue.\n- **MAP (010B)**: Last value 52 kPa, mean 52 kPa. This is within the expected range for a naturally-aspirated engine.\n- **O2 Sensor (0114)**: Mean 0.44V, std 0.27V. The high standard deviation suggests the sensor is oscillating, but the mean is slightly higher than expected, possibly due to the lean condition.\n- **EGR Error (012D)**: Last value -18.4%, mean -17.8%. This indicates the EGR system is not functioning as expected, potentially contributing to the lean condition.\n\n**Root Cause Assessment**\n- The high positive fuel trims on both STFT and LTFT suggest a lean condition affecting both banks, likely due to a vacuum leak, MAF sensor issue, or fuel delivery problem.\n- The EGR error indicates the EGR system might be stuck closed, reducing exhaust gas recirculation and contributing to the lean condition.\n- The O2 sensor is oscillating but may be influenced by the lean condition rather than being the root cause.\n\n**Recommended Next Steps**\n1. **Inspect for Vacuum Leaks**: Check for any vacuum leaks in the intake system, as these can cause a lean condition.\n2. **Check EGR System**: Inspect and service the EGR valve and related components to ensure proper operation.\n3. **Examine MAF Sensor**: Clean or replace the MAF sensor if contamination is suspected, as it can misreport airflow and cause incorrect fueling.\n4. **Fuel System Inspection**: Verify fuel pressure and inspect the fuel delivery system for any restrictions or issues.\n5. **Re-evaluate O2 Sensor**: After addressing the above issues, re-evaluate the O2 sensor performance to ensure it is not contributing to the problem.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 0,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 0,
+      "total": 6,
+      "judge_notes": "Agent failed to identify the stuck-open EGR valve as the root cause and did not reference the known Honda EGR quirk."
+    },
+    "passed": false,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_121227",
+    "case_id": "HONDA_002",
+    "vehicle_id": "honda-fit-2015",
+    "scenario_tag": "diagnosis_accuracy",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "**Urgency: NORMAL**\n\n**Summary**  \nAll monitored sensors are within healthy operating ranges for the 2015 Honda Fit with a 1.5L L15B7 engine. No immediate action is required.\n\n**Findings**\n- **MAF (PID 0104)**: Mean value of 40 g/s with a standard deviation of 6.4 g/s is appropriate for this engine size, indicating normal air intake.\n- **MAP (PID 010B)**: Mean value of 58 kPa with a standard deviation of 7.8 kPa is within the expected range for a naturally aspirated engine.\n- **O2 Sensors**: \n  - Upstream (PID 0114) has a mean of 0.47V with a standard deviation of 0.27V, indicating normal oscillation.\n  - Downstream (PID 0115) has a mean of 0.73V with a standard deviation of 0.03V, indicating a healthy catalytic converter.\n- **Fuel Trims**: \n  - STFT (PID 0106) and LTFT (PID 0107) are both within \u00b15%, showing balanced fuel delivery.\n- **EGR System**: \n  - Commanded EGR (PID 012C) and EGR error (PID 012D) show no significant deviation, indicating normal operation.\n\n**Root Cause Assessment**\n- No abnormalities detected in the sensor data. All values are consistent with a well-functioning engine.\n\n**Recommended Next Steps**\n1. Continue regular maintenance as per the vehicle's service schedule.\n2. Monitor for any changes in vehicle performance or dashboard warning lights.\n3. If any new symptoms arise, perform a follow-up diagnostic check.",
+    "scores": {
+      "urgency_correct": 0,
+      "root_cause_identified": 0,
+      "bogus_value_handled": 0,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 4,
+      "judge_notes": "Agent failed to identify stuck EGR and incorrectly assessed urgency as NORMAL."
+    },
+    "passed": false,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_121227",
+    "case_id": "HONDA_003",
+    "vehicle_id": "honda-fit-2015",
+    "scenario_tag": "urgency_calibration",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "**Urgency: NORMAL**\n\n**Summary**  \nAll sensor readings for the 2015 Honda Fit are within healthy operating ranges, with no significant deviations or anomalies detected.\n\n**Findings**  \n- **MAP (PID 010B)**: Last reading of 62 kPa is within the expected range for a naturally-aspirated engine. The standard deviation of 18 kPa is reasonable given the range of operation.\n- **O2 Sensor Upstream (PID 0114)**: Mean voltage of 0.46V with a standard deviation of 0.27V indicates healthy oscillation.\n- **O2 Sensor Downstream (PID 0115)**: Mean voltage of 0.72V with a standard deviation of 0.03V suggests stable catalytic converter operation.\n- **STFT (PID 0106)** and **LTFT (PID 0107)**: Both are well within the \u00b15% range, indicating balanced fuel trims.\n- **EGR Commanded (PID 012C)** and **EGR Error (PID 012D)**: Both show normal operation with no significant error.\n\n**Root Cause Assessment**  \nThere are no indications of any issues requiring immediate attention. All sensors are functioning within expected parameters, and there are no signs of fuel trim imbalances or sensor failures.\n\n**Recommended Next Steps**  \n1. Continue regular maintenance and monitoring. No immediate action is required based on the current data.\n2. If any symptoms or check engine lights appear, re-evaluate with a new OBD2 snapshot to ensure no new issues have developed.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 2,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 10,
+      "judge_notes": "Agent correctly identified normal operation with no over-reading of EGR error variance."
+    },
+    "passed": true,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_121227",
+    "case_id": "HONDA_004",
+    "vehicle_id": "honda-fit-2015",
+    "scenario_tag": "data_completeness",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "**Urgency: NORMAL**\n\n**Summary**  \nAll monitored parameters for the 2015 Honda Fit are within normal operating ranges. No immediate action is required as the vehicle's sensors and fuel trims are functioning properly.\n\n**Findings**\n- **MAP (PID 010B):** Last value 82 kPa, mean 74 kPa, std 18. This is within the expected range for a naturally-aspirated engine.\n- **O2 Sensor Upstream (PID 0114):** Last value 0.46V, mean 0.47V, std 0.27. The sensor is oscillating normally, indicating healthy operation.\n- **O2 Sensor Downstream (PID 0115):** Last value 0.74V, mean 0.73V, std 0.03. The sensor is steady, suggesting the catalytic converter is functioning well.\n- **STFT (PID 0106):** Last value 3.1%, mean 2.4%, std 2.1. This is within the normal range, indicating no immediate fuel mixture issues.\n- **LTFT (PID 0107):** Last value 2.3%, mean 2.2%, std 1.2. This is also within the normal range, showing no chronic fueling issues.\n\n**Root Cause Assessment**\n- All sensors are reporting values within expected ranges, and no anomalies are detected in the data provided. The fuel trims are well within the \u00b15% range, indicating a balanced air-fuel mixture.\n\n**Recommended Next Steps**\n1. Continue regular maintenance as per the vehicle's service schedule.\n2. Monitor for any changes in performance or fuel efficiency, and recheck if any symptoms arise.\n3. Ensure that all routine checks, such as air filter and spark plug inspections, are up to date to maintain optimal engine performance.",
+    "scores": {
+      "urgency_correct": 1,
+      "root_cause_identified": 0,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 0,
+      "vehicle_quirk_cited": 0,
+      "total": 3,
+      "judge_notes": "Agent failed to note missing CVT temp data gap and incorrectly set urgency to NORMAL."
+    },
+    "passed": false,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_121227",
+    "case_id": "HONDA_005",
+    "vehicle_id": "honda-fit-2015",
+    "scenario_tag": "diagnosis_accuracy",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "**Urgency: HIGH**\n\n**Summary**  \nThe vehicle exhibits significant negative fuel trims on both banks, indicating a potential rich condition. This may be due to an injector issue, high fuel pressure, or a malfunctioning O2 sensor.\n\n**Findings**\n- **STFT B1 (PID 0106):** Last value -13.3%, mean -12.8%. Expected range is \u00b15%. This indicates a persistent rich condition.\n- **LTFT B1 (PID 0107):** Last value -11.7%, mean -11.4%. Expected range is \u00b15%. This confirms a chronic rich condition.\n- **Upstream O2 Sensor (PID 0114):** Std deviation is 0.22V, which is within normal oscillation range, suggesting the sensor is functioning but may be reacting to an actual rich condition.\n- **Downstream O2 Sensor (PID 0115):** Mean value of 0.74V with low std deviation, indicating the catalytic converter is likely functioning properly.\n- **MAP (PID 010B):** Mean 50 kPa, std 9.8 kPa. Values are within expected range for a naturally aspirated engine.\n- **EGR Commanded (PID 012C) and EGR Error (PID 012D):** Low activity and minor error suggest EGR is not a primary factor here.\n\n**Root Cause Assessment**\n- **Primary Diagnosis:** The negative fuel trims on both banks suggest a rich condition potentially caused by excessive fuel delivery. This could be due to a leaking fuel injector or elevated fuel pressure.\n- **Alternative Diagnosis:** A malfunctioning MAF sensor could also cause incorrect air mass readings, leading to rich conditions, but the MAP readings appear normal, which reduces the likelihood of this scenario.\n\n**Recommended Next Steps**\n1. **Inspect Fuel Injectors:** Check for leaks or drips that could cause excess fuel delivery.\n2. **Test Fuel Pressure:** Ensure the fuel pressure is within the manufacturer's specifications.\n3. **Verify O2 Sensor Functionality:** Although the upstream sensor appears to oscillate normally, confirm it is not stuck or biased by performing a dynamic test.\n4. **Check for ECU Updates:** Ensure the vehicle's ECU has the latest software updates, as they may address known issues with fuel management.\n5. **Schedule a Service Appointment:** Given the persistent rich condition, it is advisable to have a professional technician further diagnose and resolve the issue within the week.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 2,
+      "bogus_value_handled": 1,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 9,
+      "judge_notes": "Agent correctly identified urgency and root cause but partially relied on O2 sensor data."
+    },
+    "passed": true,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_121227",
+    "case_id": "HONDA_006",
+    "vehicle_id": "honda-fit-2015",
+    "scenario_tag": "data_completeness",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "**Urgency: HIGH**\n\n**Summary**  \nThe MAP sensor is reporting a constant value of 255 kPa, which is indicative of a sensor failure or adapter artifact. This invalid reading prevents accurate load and fueling analysis. Other sensors appear to be functioning within normal parameters.\n\n**Findings**\n- **MAP Sensor (PID 010B)**: Reports a constant 255 kPa with a standard deviation of 0, indicating a likely sensor failure or adapter artifact. This is outside the valid range for a naturally-aspirated engine and suggests a rollover artifact from the ELM327 adapter.\n- **Fuel Trims (PIDs 0106/0107)**: STFT and LTFT are within normal ranges, with STFT at 2.3% and LTFT at 1.6%, indicating no significant fueling issues.\n- **O2 Sensors (PIDs 0114/0115)**: Upstream O2 sensor shows normal oscillation with a mean of 0.46V and std of 0.27V. Downstream O2 sensor is steady at 0.73V with a std of 0.03V, indicating healthy catalytic converter function.\n- **EGR System (PIDs 012C/012D)**: Commanded EGR and EGR error values are within expected ranges, suggesting the EGR system is functioning properly.\n\n**Root Cause Assessment**\n- The primary issue is the MAP sensor's constant reading of 255 kPa, which is likely due to a sensor failure or an adapter artifact. This prevents accurate analysis of engine load and fueling, which could mask other potential issues.\n\n**Recommended Next Steps**\n1. **Verify Sensor/Adapter Functionality**: Check the MAP sensor and OBD2 adapter for faults. Replace the MAP sensor if it is confirmed to be faulty, or try a different OBD2 adapter to rule out an artifact.\n2. **Re-evaluate Data**: Once the MAP sensor issue is resolved, re-evaluate the engine data to ensure no other issues are present.\n3. **Monitor Fuel Trims and O2 Sensors**: Continue to monitor fuel trims and O2 sensor readings to ensure they remain within normal ranges after addressing the MAP sensor issue.",
+    "scores": {
+      "urgency_correct": 1,
+      "root_cause_identified": 2,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 1,
+      "total": 8,
+      "judge_notes": "Urgency overstated but root cause and bogus value handled well."
+    },
+    "passed": true,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_121227",
+    "case_id": "HONDA_007",
+    "vehicle_id": "honda-fit-2015",
+    "scenario_tag": "urgency_calibration",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "**Urgency: LOW**\n\n**Summary**  \nThe vehicle's sensor data indicates normal operation with minor variances in fuel trims and EGR behavior, but no immediate issues requiring urgent attention.\n\n**Findings**\n- **MAP (PID 010B)**: Mean value of 56 kPa with a standard deviation of 12 kPa is within the expected range for a naturally-aspirated engine, confirming normal manifold pressure.\n- **STFT (PID 0106)**: Mean of 3.8% with a standard deviation of 3.8% is within normal limits, indicating no significant short-term fuel trim issues.\n- **LTFT (PID 0107)**: Mean of 4.4% with a standard deviation of 1.4% is also within normal limits, showing no chronic fuel trim issues.\n- **Upstream O2 Sensor (PID 0114)**: Mean voltage of 0.48V with a standard deviation of 0.14V suggests healthy oscillation.\n- **Downstream O2 Sensor (PID 0115)**: Mean voltage of 0.72V with a standard deviation of 0.03V indicates a stable reading, suggesting the catalytic converter is functioning properly.\n- **EGR Commanded (PID 012C)**: Mean of 10% with a standard deviation of 7.2% shows typical EGR operation, though the variance suggests occasional deviations.\n- **EGR Error (PID 012D)**: Mean of 0.8% with a standard deviation of 2.1% is acceptable, but the range indicates some variability in EGR performance.\n\n**Root Cause Assessment**\n- The data suggests normal operation with minor fluctuations in EGR performance, which could be attributed to typical operational variance or minor carbon buildup, common in engines with EGR systems over time.\n\n**Recommended Next Steps**\n1. **Monitor EGR Performance**: Keep an eye on EGR-related PIDs for any increase in variability or error, which might suggest the need for cleaning or inspection.\n2. **Routine Maintenance**: Continue with regular maintenance schedules, including air filter checks and fuel system cleaning, to prevent any potential issues from developing.\n3. **Data Logging**: Consider periodic data logging to track any trends in fuel trims or EGR performance that might indicate developing issues.",
+    "scores": {
+      "urgency_correct": 0,
+      "root_cause_identified": 0,
+      "bogus_value_handled": 0,
+      "data_gap_noted": 0,
+      "vehicle_quirk_cited": 2,
+      "total": 2,
+      "judge_notes": "Agent failed to identify sluggish O2 sensor and incorrectly assigned LOW urgency."
+    },
+    "passed": false,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_121227",
+    "case_id": "HONDA_008",
+    "vehicle_id": "honda-fit-2015",
+    "scenario_tag": "diagnosis_accuracy",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "**Urgency: NORMAL**\n\n**Summary**  \nAll sensors are within healthy operating ranges, with fuel trims and O2 sensor readings indicating normal engine function. No immediate action is needed.\n\n**Findings**\n- **Fuel Trims (STFT/LTFT):** Both STFT (0106) and LTFT (0107) are slightly negative, with values of -3.1% and -2.3% respectively. These are well within the acceptable range of \u00b15%, indicating efficient fuel management.\n- **O2 Sensors:** Upstream O2 sensor (0114) shows a healthy oscillation with a mean of 0.47V and a standard deviation of 0.27V, indicating proper sensor function. Downstream O2 sensor (0115) is stable at 0.73V, suggesting the catalytic converter is functioning correctly.\n- **MAP Sensor (010B):** The MAP reading is 68 kPa, which is appropriate for a naturally-aspirated engine at idle or low load.\n- **EGR System:** Commanded EGR (012C) and EGR error (012D) values are within normal ranges, indicating no issues with the EGR system.\n\n**Root Cause Assessment**\n- The data indicates normal operation with no signs of sensor faults or engine inefficiencies. The slight negative fuel trims suggest a slightly rich condition, but this is within normal variance and not a cause for concern.\n\n**Recommended Next Steps**\n1. Continue regular maintenance and monitoring. No immediate service is required.\n2. If any drivability issues arise, recheck the OBD2 data for any changes in sensor behavior or fuel trims.",
+    "scores": {
+      "urgency_correct": 1,
+      "root_cause_identified": 0,
+      "bogus_value_handled": 0,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 0,
+      "total": 3,
+      "judge_notes": "Agent failed to identify high MAP and engine load as issues, misjudged urgency, and did not address potential IAC or throttle body issues."
+    },
+    "passed": false,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_121227",
+    "case_id": "HONDA_009",
+    "vehicle_id": "honda-fit-2015",
+    "scenario_tag": "data_completeness",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "**Urgency: NORMAL**\n\n**Summary**  \nAll sensor readings for the 2015 Honda Fit are within expected ranges, indicating no immediate issues with the vehicle's performance or emissions systems.\n\n**Findings**\n- **MAF (PID 0104)**: Mean value of 34 g/s with a standard deviation of 7.2 g/s is typical for a 1.5L engine under varying load conditions.\n- **MAP (PID 010B)**: Mean value of 56 kPa, with a standard deviation of 12 kPa, is within the normal range for a naturally aspirated engine.\n- **O2 Sensor Upstream (PID 0114)**: Mean voltage of 0.46V with a standard deviation of 0.27V indicates healthy oscillation.\n- **O2 Sensor Downstream (PID 0115)**: Mean voltage of 0.72V with a standard deviation of 0.03V is stable, suggesting the catalytic converter is functioning properly.\n- **STFT (PID 0106)**: Mean of 1.8% with a standard deviation of 1.8% is well within the normal range.\n- **LTFT (PID 0107)**: Mean of 1.4% with a standard deviation of 1.2% is also within the normal range.\n\n**Root Cause Assessment**\n- No root cause diagnosis is necessary as all parameters are within normal operating ranges.\n\n**Recommended Next Steps**\n1. Continue regular maintenance as per the vehicle's service schedule.\n2. Monitor for any changes in performance or dashboard warning lights, and perform diagnostics if any arise.\n3. Ensure that the OBD2 adapter and software are functioning correctly to maintain accurate data logging.",
+    "scores": {
+      "urgency_correct": 1,
+      "root_cause_identified": 0,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 0,
+      "vehicle_quirk_cited": 2,
+      "total": 5,
+      "judge_notes": "Agent failed to note missing EGR PIDs, affecting data completeness assessment."
+    },
+    "passed": false,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_121227",
+    "case_id": "TUNDRA_001",
+    "vehicle_id": "tundra-2007",
+    "scenario_tag": "diagnosis_accuracy",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "**Urgency: MEDIUM**\n\n**Summary**  \nThe OBD2 data for the 2007 Toyota Tundra indicates a sluggish upstream O2 sensor on Bank 1, which could affect fuel efficiency and emissions. Additionally, there is a mild asymmetry in fuel trims between the banks.\n\n**Findings**\n- **O2 Sensor (Bank 1, Sensor 1) [PID 0114]:** Mean voltage is 0.46V with a high standard deviation of 0.26V, indicating sluggish behavior. Expected std is ~0.25\u20130.30V for healthy oscillation.\n- **Fuel Trim Asymmetry:** \n  - **Bank 1 LTFT [PID 0106]:** Mean is 8.2%, which is slightly elevated.\n  - **Bank 2 LTFT [PID 0108]:** Mean is 7.4%, showing a mild asymmetry but within acceptable limits.\n- **MAF [PID 0110]:** Mean is 6.1 g/s, which is within the expected range for idle on a 5.7L engine.\n- **MAP [PID 010B]:** Mean is 87 kPa, within normal range for a naturally aspirated engine.\n- **Vehicle Speed [PID 010D]:** All values are zero, indicating a possible sensor or data logging issue, but not critical for current diagnostics.\n\n**Root Cause Assessment**\n- The sluggish O2 sensor on Bank 1 is likely causing the slight elevation in fuel trims. This can lead to inefficient combustion and increased emissions over time.\n- The mild asymmetry in fuel trims is not significant enough to suggest a major issue but should be monitored.\n\n**Recommended Next Steps**\n1. **Replace the upstream O2 sensor on Bank 1 (PID 0114):** This should restore proper oscillation and improve fuel trim balance.\n2. **Monitor fuel trims post-replacement:** Ensure that the LTFT values stabilize within \u00b15% on both banks.\n3. **Verify vehicle speed sensor functionality (PID 010D):** Although not critical for current diagnostics, ensure that the sensor or data logging system is functioning correctly for future diagnostics.\n4. **Schedule a follow-up check:** After replacing the O2 sensor, re-evaluate the fuel trims and sensor behaviors to confirm resolution.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 0,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 1,
+      "vehicle_quirk_cited": 0,
+      "total": 5,
+      "judge_notes": "Agent missed the SAI pump failure and focused incorrectly on the O2 sensor."
+    },
+    "passed": false,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_121227",
+    "case_id": "TUNDRA_002",
+    "vehicle_id": "tundra-2007",
+    "scenario_tag": "diagnosis_accuracy",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "**Urgency: MEDIUM**\n\n**Summary**  \nThe vehicle exhibits mild single-bank trim asymmetry with negative long-term fuel trims on both banks, suggesting a potential issue that should be addressed soon.\n\n**Findings**\n- **LTFT B1 (PID 0108)**: Last value -8.6%, mean -8.2%. This indicates a consistent lean condition correction on Bank 1.\n- **LTFT B2 (PID 0109)**: Last value -7.0%, mean -6.8%. Similar lean correction on Bank 2, but slightly less pronounced than Bank 1.\n- **STFT B1 (PID 0106)**: Last value 2.3%, mean 1.8%. Short-term trims are within normal range, indicating the ECU is actively compensating.\n- **STFT B2 (PID 0107)**: Last value 1.6%, mean 1.4%. Also within normal range.\n- **O2 Sensor B1S1 (PID 0114)**: Std 0.27V, indicating healthy oscillation.\n- **O2 Sensor B1S2 (PID 0115)**: Std 0.03V, indicating stable downstream sensor.\n- **O2 Sensor B2S1 (PID 011B)**: Std 0.38V, slightly higher variance than expected, but not critical.\n- **O2 Sensor B2S2 (PID 011C)**: Std 0.04V, indicating stable downstream sensor.\n\n**Root Cause Assessment**\nThe negative long-term fuel trims on both banks suggest the engine is running rich, and the ECU is pulling fuel to compensate. This could be due to:\n- A minor vacuum leak affecting both banks, though the trims are not severely negative.\n- A slightly contaminated MAF sensor causing inaccurate air measurement.\n- A potential issue with the fuel pressure regulator or injectors delivering slightly more fuel than required.\n\n**Recommended Next Steps**\n1. **Inspect and Clean MAF Sensor**: Ensure the MAF sensor is clean and functioning correctly, as contamination can lead to inaccurate air readings.\n2. **Check for Vacuum Leaks**: Perform a smoke test or visual inspection to identify any potential vacuum leaks that could affect both banks.\n3. **Inspect Fuel System**: Check the fuel pressure regulator and injectors for proper operation and ensure they are not delivering excess fuel.\n4. **Monitor Fuel Trims**: Continue to monitor fuel trims to see if the issue persists or worsens, indicating a need for further investigation.",
+    "scores": {
+      "urgency_correct": 0,
+      "root_cause_identified": 0,
+      "bogus_value_handled": 0,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 0,
+      "total": 2,
+      "judge_notes": "Agent failed to identify the erratic B2S1 O2 sensor and the known Tundra wiring issue, and incorrectly assessed urgency as medium."
+    },
+    "passed": false,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_121227",
+    "case_id": "TUNDRA_003",
+    "vehicle_id": "tundra-2007",
+    "scenario_tag": "urgency_calibration",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "**Urgency: NORMAL**\n\n**Summary**  \nAll sensor readings are within expected ranges for the 2007 Toyota Tundra with a 5.7L V8 engine. No immediate action is required as the vehicle is operating normally.\n\n**Findings**\n- **MAF (PID 0110):** Mean value of 11.8 g/s is appropriate for a 5.7L engine at idle and under light load.\n- **MAP (PID 010B):** Mean value of 94 kPa is within the expected range for a naturally aspirated engine.\n- **O2 Sensors (PIDs 0114, 0115, 011B, 011C):** Upstream sensors (0114, 011B) show good oscillation with a standard deviation of 0.27V, indicating healthy switching. Downstream sensors (0115, 011C) are stable around 0.73V, suggesting no catalytic converter issues.\n- **Fuel Trims (PIDs 0106, 0107, 0108, 0109):** Both short-term and long-term fuel trims are within \u00b15%, indicating balanced air-fuel mixture and no significant vacuum leaks or fuel delivery issues.\n\n**Root Cause Assessment**\n- No root cause for concern as all parameters are within normal operating ranges. The vehicle's sensors and systems appear to be functioning correctly.\n\n**Recommended Next Steps**\n1. Continue regular maintenance and monitoring of the vehicle.\n2. No immediate diagnostic actions are required unless new symptoms arise.",
+    "scores": {
+      "urgency_correct": 1,
+      "root_cause_identified": 0,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 0,
+      "total": 5,
+      "judge_notes": "Agent failed to identify the EVAP leak code and did not mention the aftermarket gas cap quirk."
+    },
+    "passed": false,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_121227",
+    "case_id": "TUNDRA_004",
+    "vehicle_id": "tundra-2007",
+    "scenario_tag": "urgency_calibration",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "**Urgency: NORMAL**\n\n**Summary**  \nAll sensor readings are within expected ranges for the 2007 Toyota Tundra with a 5.7L V8 engine. No immediate action is required as the vehicle is operating normally.\n\n**Findings**\n- **MAF (PID 0110)**: 22.4 g/s at idle is appropriate for a 5.7L engine, indicating normal air intake.\n- **MAP (PID 010B)**: 104 kPa is within the expected range for a naturally-aspirated engine at sea level, confirming normal manifold pressure.\n- **O2 Sensors (PIDs 0114, 0115, 011B, 011C)**: Upstream sensors (0114, 011B) show healthy oscillation with a standard deviation of ~0.27V, indicating normal operation. Downstream sensors (0115, 011C) are steady around 0.73-0.74V, suggesting catalytic converters are functioning properly.\n- **Fuel Trims (PIDs 0106, 0107, 0108, 0109)**: Both short-term and long-term fuel trims are within \u00b15%, indicating balanced fuel delivery and no significant air/fuel mixture issues.\n\n**Root Cause Assessment**\n- No root cause for concern identified as all parameters are within normal operating ranges.\n\n**Recommended Next Steps**\n1. Continue regular maintenance as per the vehicle's schedule.\n2. Monitor for any changes in performance or dashboard warning lights.\n3. If any symptoms develop, recheck OBD2 data for any deviations from current readings.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 2,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 10,
+      "judge_notes": "Agent correctly identified normal operation with no issues, matching expected behavior."
+    },
+    "passed": true,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_121227",
+    "case_id": "TUNDRA_005",
+    "vehicle_id": "tundra-2007",
+    "scenario_tag": "diagnosis_accuracy",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "**Urgency: HIGH**\n\n**Summary**  \nThe vehicle exhibits significant positive fuel trim adjustments on both banks, indicating a potential lean condition. This may be due to a MAF sensor issue, air intake restriction, or fuel delivery problem.\n\n**Findings**\n- **STFT Bank 1 (0106):** Last 13.3%, Mean 12.8% \u2014 Exceeds \u00b110% threshold, indicating a lean condition.\n- **STFT Bank 2 (0108):** Last 12.5%, Mean 12.2% \u2014 Exceeds \u00b110% threshold, indicating a lean condition.\n- **LTFT Bank 1 (0107):** Last 11.7%, Mean 11.4% \u2014 Chronic lean condition on Bank 1.\n- **LTFT Bank 2 (0109):** Last 10.9%, Mean 10.6% \u2014 Chronic lean condition on Bank 2.\n- **MAF (0110):** Last 10.2 g/s, Mean 9.4 g/s \u2014 Within expected range for a 5.7L engine at idle, but check for contamination or calibration issues.\n- **Upstream O2 Sensors (0114 & 011B):** Std 0.26V and 0.25V respectively \u2014 Low standard deviation suggests sluggish response, potentially contributing to trim issues.\n\n**Root Cause Assessment**\n- The symmetric lean condition across both banks suggests a system-wide issue rather than a bank-specific problem. The MAF sensor, although reading within expected ranges, could be contaminated or misreporting airflow, leading to incorrect fueling adjustments.\n- Alternatively, a restriction in the air intake system or a fuel delivery issue (e.g., low fuel pressure) could also cause the observed lean condition.\n\n**Recommended Next Steps**\n1. **Inspect and Clean MAF Sensor:** Check for contamination and clean if necessary. Reassess fuel trims post-cleaning.\n2. **Check Air Intake System:** Ensure there are no restrictions or leaks that could affect airflow measurement.\n3. **Fuel Pressure Test:** Verify that the fuel pressure is within specification to rule out delivery issues.\n4. **O2 Sensor Functionality Test:** Evaluate the response time of upstream O2 sensors to ensure they are not sluggish and contributing to the trim issues.\n5. **Schedule Service:** Given the high urgency, address these issues promptly to prevent potential engine damage.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 1,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 0,
+      "total": 7,
+      "judge_notes": "Agent identified lean condition but did not clearly prioritize MAF sensor as primary suspect."
+    },
+    "passed": true,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v2_20260415_121227",
+    "case_id": "TUNDRA_006",
+    "vehicle_id": "tundra-2007",
+    "scenario_tag": "urgency_calibration",
+    "prompt_label": "system_prompt_v2",
+    "agent_response": "**Urgency: HIGH**\n\n**Summary**  \nThe vehicle exhibits significant fuel trim issues with both banks showing excessive negative LTFT values, indicating a rich condition. Immediate attention is required to address potential causes such as injector issues or a faulty O2 sensor.\n\n**Findings**\n- **LTFT B1 (0108):** Last 12.5%, mean 12.0% \u2014 Exceeds \u00b110% threshold, indicating a chronic rich condition.\n- **LTFT B2 (0109):** Last 10.9%, mean 10.6% \u2014 Also exceeds \u00b110%, confirming a systemic issue.\n- **STFT B1 (0106):** Last -11.7%, mean -11.2% \u2014 Consistently negative, suggesting real-time correction for rich mixture.\n- **STFT B2 (0107):** Last -9.4%, mean -9.0% \u2014 Similar negative trend, supporting the rich condition diagnosis.\n- **Upstream O2 Sensor B1 (0114):** Std 0.24V \u2014 Slightly below normal oscillation range, may indicate a sluggish sensor.\n- **Upstream O2 Sensor B2 (011B):** Std 0.26V \u2014 Within normal range, but close to the lower threshold.\n- **Downstream O2 Sensors (0115, 011C):** Stable readings, indicating catalytic converters are likely functioning correctly.\n\n**Root Cause Assessment**\n- **Primary Diagnosis:** The simultaneous rich condition on both banks suggests a systemic issue such as a faulty fuel pressure regulator or leaking fuel injectors. The slightly sluggish upstream O2 sensor on Bank 1 could also contribute to incorrect fuel mixture readings.\n- **Alternative Diagnosis:** A potential issue with the MAF sensor could cause incorrect air mass readings, leading to a rich mixture, although the MAF readings appear within expected ranges.\n\n**Recommended Next Steps**\n1. **Inspect Fuel System:** Check for leaking fuel injectors or a faulty fuel pressure regulator that could cause excessive fuel delivery.\n2. **Test O2 Sensors:** Verify the functionality of the upstream O2 sensors, especially on Bank 1, to ensure they are not providing incorrect feedback to the ECU.\n3. **Check MAF Sensor:** Clean or replace the MAF sensor if contamination is suspected, as it could affect air-fuel calculations.\n4. **Review Known Issues:** Consider the Tundra's known quirks, such as potential secondary air injection (SAI) system issues, although not directly indicated here.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 1,
+      "bogus_value_handled": 0,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 1,
+      "total": 6,
+      "judge_notes": "Agent missed the cross-bank imbalance pattern and misinterpreted the LTFT values, but urgency was correct."
+    },
+    "passed": false,
+    "error": null
+  }
+]

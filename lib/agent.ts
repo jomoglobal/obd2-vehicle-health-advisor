@@ -35,9 +35,18 @@ function buildSystemPrompt(vehicleId: string): string {
     ? "turbocharged — boost pressure and charge pipe integrity are relevant"
     : "naturally aspirated";
 
+  const fuelTypeInfo = vehicle.fuelType === "flex-fuel"
+    ? "flex-fuel — ethanol content varies per fill-up; fuel trims, AFR targets, and timing all shift with ethanol %; always consider ethanol content when interpreting trim data"
+    : "gasoline";
+
   const quirksBlock =
     vehicle.knownQuirks.length > 0
       ? `\n\nKnown quirks and caveats for this vehicle:\n${vehicle.knownQuirks.map((q) => `- ${q}`).join("\n")}`
+      : "";
+
+  const inaccessibleBlock =
+    vehicle.inaccessiblePIDs && vehicle.inaccessiblePIDs.length > 0
+      ? `\n\nPIDs known to be inaccessible via generic OBD2 on this vehicle (absence is expected, not a fault):\n${vehicle.inaccessiblePIDs.map((p) => `- ${p}`).join("\n")}`
       : "";
 
   return `You are an expert OBD2 vehicle health advisor with deep knowledge of automotive diagnostics.
@@ -48,7 +57,8 @@ Vehicle under analysis:
 - Drivetrain: ${turboInfo}
 - Bank configuration: ${bankInfo}
 - Fuel metering: ${vehicle.fuelSystem}-based
-- EGR system present: ${vehicle.hasEGR}${quirksBlock}
+- Fuel type: ${fuelTypeInfo}
+- EGR system present: ${vehicle.hasEGR}${quirksBlock}${inaccessibleBlock}
 
 Your task:
 1. Analyze the OBD2 sensor snapshot provided.

@@ -1,0 +1,477 @@
+[
+  {
+    "run_id": "system_prompt_v1_20260415_232956",
+    "case_id": "BMW_001",
+    "vehicle_id": "bmw-335i-2009",
+    "scenario_tag": "diagnosis_accuracy",
+    "prompt_label": "system_prompt_v1",
+    "agent_response": "Based on the OBD2 sensor data provided for your 2009 BMW 335i with the 3.0L N54 Twin-Turbo I6 engine, here is the analysis:\n\n1. **Engine Load (PID 0104):** The last reading is 68%, which is within a reasonable range for a turbocharged engine under moderate load. No immediate concerns here.\n\n2. **Coolant Temperature (PID 0105):** The last reading is 91\u00b0C, which is typical for an engine at operating temperature. This is within the normal range.\n\n3. **Intake Air Temperature (PID 010F):** The last reading is 24\u00b0C, which is normal depending on ambient conditions. No issues here.\n\n4. **MAF (Mass Air Flow) Sensor (PID 0110):** The last reading is 14.2 g/s. This is within a reasonable range for your engine size and RPM.\n\n5. **Throttle Position (PID 0111):** The last reading is 22%. This seems low if the vehicle is under load, but it could be normal if the vehicle is idling or coasting.\n\n6. **Oxygen Sensor 1 (PID 0114):** The last reading is 0.15V, which is on the lean side. The mean value is 0.45V, indicating some fluctuation. This could suggest a potential issue with fuel delivery or air intake.\n\n7. **Oxygen Sensor 2 (PID 0115):** The last reading is 0.72V, which is within a normal range for a rich condition. This sensor seems to be functioning normally.\n\n8. **RPM (PID 010C):** The last reading is 2200 RPM, which is normal for driving conditions. The range from 750 to 3800 RPM is typical for varying driving conditions.\n\n9. **Vehicle Speed (PID 010D):** The last reading is 45 km/h, which is normal for city driving.\n\n10. **Fuel Trim (Short Term) (PID 0106, 0107, 0108, 0109):** The readings are within normal ranges, indicating that the engine is adjusting fuel delivery appropriately.\n\n11. **Oxygen Sensor 3 (PID 011B):** The last reading is 0.13V, which is also on the lean side. This, combined with the reading from PID 0114, suggests a potential issue with the air-fuel mixture.\n\n12. **Oxygen Sensor 4 (PID 011C):** The last reading is 0.71V, which is normal.\n\n### Recommendations:\n\n- **Investigate Oxygen Sensors:** The lean readings from the oxygen sensors (PIDs 0114 and 011B) suggest that there might be an issue with the air-fuel mixture. This could be due to a vacuum leak, a faulty MAF sensor, or an issue with the fuel injectors. It would be advisable to have these components checked.\n\n- **Monitor Fuel System:** Ensure that the fuel system is delivering the correct amount of fuel. A fuel pressure test might be necessary to rule out issues with the fuel pump or fuel pressure regulator.\n\n- **Check for Vacuum Leaks:** A vacuum leak can cause a lean condition. Inspect hoses and connections for any signs of wear or damage.\n\n### Urgency Level: MEDIUM\n\nWhile the vehicle is currently operable, addressing the potential lean condition is important to prevent long-term engine damage or reduced performance. It is advisable to have these issues checked by a professional mechanic soon.",
+    "scores": {
+      "urgency_correct": 0,
+      "root_cause_identified": 0,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 0,
+      "vehicle_quirk_cited": 0,
+      "total": 2,
+      "judge_notes": "The agent failed to identify the HPFP failure and did not mention the BMW N54 quirk, with an incorrect urgency level."
+    },
+    "passed": false,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v1_20260415_232956",
+    "case_id": "BMW_002",
+    "vehicle_id": "bmw-335i-2009",
+    "scenario_tag": "diagnosis_accuracy",
+    "prompt_label": "system_prompt_v1",
+    "agent_response": "Based on the OBD2 sensor data provided for your 2009 BMW 335i with the 3.0L N54 Twin-Turbo I6 engine, here is the analysis:\n\n1. **Engine Load (PID 0104):** \n   - Last: 31%, Min: 18%, Max: 95%, Mean: 42%, Std: 22\n   - The maximum engine load of 95% is quite high, indicating that the engine has been under significant stress at some point. The standard deviation is also high, suggesting variability in engine load. This could be normal if the vehicle was driven aggressively or under heavy load conditions.\n\n2. **Coolant Temperature (PID 0105):**\n   - Last: 89\u00b0C, Min: 86\u00b0C, Max: 93\u00b0C, Mean: 89\u00b0C, Std: 1.8\n   - The coolant temperature is within a normal range for this engine, indicating the cooling system is functioning properly.\n\n3. **Intake Manifold Absolute Pressure (PID 010B):**\n   - Last: 95 kPa, Min: 88 kPa, Max: 198 kPa, Mean: 112 kPa, Std: 28\n   - The maximum value of 198 kPa is unusually high, which could indicate a potential issue with the turbocharger system or a sensor fault. This should be investigated further.\n\n4. **Engine RPM (PID 010C):**\n   - Last: 1800 RPM, Min: 750 RPM, Max: 5200 RPM, Mean: 2400 RPM, Std: 940\n   - The RPM values are within a typical range for various driving conditions.\n\n5. **Vehicle Speed (PID 010D):**\n   - Last: 55 km/h, Min: 0 km/h, Max: 80 km/h, Mean: 48 km/h, Std: 21\n   - Speed readings appear normal.\n\n6. **Intake Air Temperature (PID 010F):**\n   - Last: 26\u00b0C, Min: 22\u00b0C, Max: 52\u00b0C, Mean: 30\u00b0C, Std: 7.8\n   - The maximum intake air temperature of 52\u00b0C is on the higher side, which could be due to high ambient temperatures or heat soak.\n\n7. **Mass Air Flow (PID 0110):**\n   - Last: 18.4 g/s, Min: 4.2 g/s, Max: 38.6 g/s, Mean: 16.2 g/s, Std: 9.1\n   - The mass air flow readings are within a reasonable range for this engine.\n\n8. **Throttle Position (PID 0111):**\n   - Last: 35%, Min: 4%, Max: 100%, Mean: 38%, Std: 28\n   - The throttle position readings are consistent with varying driving conditions.\n\n9. **Oxygen Sensor Readings (PIDs 0114, 0115, 011B, 011C):**\n   - The readings for the oxygen sensors appear normal, indicating that the air-fuel mixture is likely balanced.\n\n**Diagnosis and Recommendations:**\n\n- **Intake Manifold Pressure:** The high maximum value suggests a potential issue with the turbocharger system or a sensor fault. It is recommended to have the turbocharger and related components inspected by a professional to ensure there are no leaks or malfunctions.\n  \n- **Engine Load Variability:** While the high engine load could be normal under certain driving conditions, it is advisable to monitor this if you notice any performance issues or unusual noises.\n\n- **Intake Air Temperature:** If high intake air temperatures persist, consider checking the intercooler and intake system for any blockages or inefficiencies.\n\n**Urgency Level: MEDIUM**\n\nWhile the vehicle is currently operable, addressing the potential turbocharger issue is important to prevent further damage or performance loss. Regular monitoring and maintenance will help ensure the vehicle remains in good condition.",
+    "scores": {
+      "urgency_correct": 0,
+      "root_cause_identified": 0,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 0,
+      "vehicle_quirk_cited": 0,
+      "total": 2,
+      "judge_notes": "Agent failed to identify the charge pipe issue and set incorrect urgency level."
+    },
+    "passed": false,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v1_20260415_232956",
+    "case_id": "BMW_003",
+    "vehicle_id": "bmw-335i-2009",
+    "scenario_tag": "diagnosis_accuracy",
+    "prompt_label": "system_prompt_v1",
+    "agent_response": "Based on the OBD2 sensor data provided for your 2009 BMW 335i with the 3.0L N54 Twin-Turbo I6 engine, here is an analysis of the readings:\n\n1. **Engine Load (PID 0104)**: The last reading is 28%, with a mean of 35% and a maximum of 72%. The standard deviation is relatively high at 14, indicating variability in engine load. This is not unusual for varying driving conditions, but if you notice performance issues, it might be worth investigating further.\n\n2. **Coolant Temperature (PID 0105)**: The last reading is 92\u00b0C, which is within the normal operating range for most engines (typically between 85\u00b0C and 105\u00b0C). The readings are stable with a low standard deviation, indicating the cooling system is functioning properly.\n\n3. **Intake Manifold Absolute Pressure (PID 010B)**: The last reading is 92 kPa, with a mean of 98 kPa and a maximum of 148 kPa. The standard deviation is 18, suggesting some variability. This could be normal under different load conditions, but if you experience performance issues, it might be worth checking for vacuum leaks or turbocharger issues.\n\n4. **Engine RPM (PID 010C)**: The last reading is 780 RPM, which is typical for idle. However, the maximum recorded RPM is 3400, which is normal during driving. The high standard deviation of 620 indicates varied engine speeds, which is expected during different driving conditions.\n\n5. **Vehicle Speed (PID 010D)**: The last reading is 0 km/h, with a mean of 18 km/h and a maximum of 55 km/h. This suggests the vehicle was stationary at the time of the last reading. The data appears normal for a mix of driving and idling.\n\n6. **Throttle Position (PID 0111)**: The last reading is 5%, with a mean of 14% and a maximum of 68%. The high standard deviation of 18 indicates variability, which is normal as throttle position changes with acceleration and deceleration.\n\n7. **Fuel Trim (PIDs 0106, 0107, 0108, 0109)**: The short-term and long-term fuel trims are within normal ranges, indicating the air-fuel mixture is being adjusted correctly by the ECU.\n\n8. **Oxygen Sensor Voltage (PIDs 0114, 0115, 011B, 011C)**: The readings are within expected ranges, suggesting the oxygen sensors are functioning properly.\n\n**Diagnosis and Recommendations:**\n\n- Overall, the sensor readings appear normal for a vehicle in varied driving conditions. The variability in some parameters like engine load and throttle position is expected.\n- If you are experiencing any specific symptoms such as reduced performance, unusual noises, or warning lights, it may be worth conducting a more thorough inspection, particularly focusing on the intake system and turbochargers, given the variability in manifold pressure.\n- Regular maintenance such as checking for vacuum leaks, ensuring the turbochargers are functioning properly, and verifying the integrity of the cooling system can help maintain optimal performance.\n\n**Urgency Level: NORMAL**\n\nThe data does not indicate any immediate issues requiring urgent attention. Continue regular maintenance and monitoring for any changes in performance or warning indicators.",
+    "scores": {
+      "urgency_correct": 1,
+      "root_cause_identified": 0,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 0,
+      "vehicle_quirk_cited": 0,
+      "total": 3,
+      "judge_notes": "Agent failed to identify GDI carbon buildup and incorrectly set urgency to NORMAL."
+    },
+    "passed": false,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v1_20260415_232956",
+    "case_id": "BMW_004",
+    "vehicle_id": "bmw-335i-2009",
+    "scenario_tag": "urgency_calibration",
+    "prompt_label": "system_prompt_v1",
+    "agent_response": "Based on the OBD2 sensor data provided for your 2009 BMW 335i, here's an analysis of the readings:\n\n1. **Engine Load (PID 0104):** The values are within a normal range for engine load, with a mean of 21% and a standard deviation of 2.8%. This indicates stable engine performance under typical conditions.\n\n2. **Coolant Temperature (PID 0105):** The last reading is 38\u00b0C, with a range from 18\u00b0C to 52\u00b0C. This is slightly lower than expected for a fully warmed-up engine, which typically operates around 90\u00b0C to 105\u00b0C. This could indicate a potential issue with the thermostat or coolant system not reaching optimal temperature.\n\n3. **Intake Air Temperature (PID 010F):** The readings are normal, with a last value of 15\u00b0C. This is within a typical range for intake air temperature.\n\n4. **RPM (PID 010C):** The RPM values are within a normal range for idle and low-speed operation, with a last reading of 820 RPM. This is typical for an engine at idle.\n\n5. **Vehicle Speed (PID 010D):** The speed is consistently at 0, which suggests the vehicle was stationary during the readings.\n\n6. **Fuel System Status (PID 0110):** The short-term fuel trim values are within normal limits, indicating the fuel system is operating correctly.\n\n7. **Oxygen Sensor Readings (PIDs 0114, 0115, 011B, 011C):** The oxygen sensor voltages are within expected ranges, suggesting that the air-fuel mixture is being monitored correctly.\n\n8. **Fuel Trim (PIDs 0106, 0107, 0108, 0109):** The short-term and long-term fuel trim values are within acceptable ranges, indicating that the engine is maintaining a proper air-fuel mixture.\n\n### Recommendations:\n- **Coolant System Check:** Given the lower than expected coolant temperature, it would be wise to inspect the thermostat and ensure the cooling system is functioning properly. This could prevent potential overheating issues in the future.\n- **Monitor Coolant Temperature:** Continue to monitor the coolant temperature to ensure it reaches and maintains the optimal operating range during normal driving conditions.\n\n### Urgency Level: MEDIUM\nThe primary concern is the coolant temperature being lower than expected, which could lead to inefficient engine operation and potential long-term issues if not addressed. However, the vehicle is not currently in a critical state. Addressing the coolant system issue should be prioritized to ensure optimal performance and prevent future problems.",
+    "scores": {
+      "urgency_correct": 0,
+      "root_cause_identified": 0,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 0,
+      "total": 4,
+      "judge_notes": "The agent incorrectly assigned MEDIUM urgency and failed to recognize the cold-start context and known quirk."
+    },
+    "passed": false,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v1_20260415_232956",
+    "case_id": "BMW_005",
+    "vehicle_id": "bmw-335i-2009",
+    "scenario_tag": "urgency_calibration",
+    "prompt_label": "system_prompt_v1",
+    "agent_response": "Based on the OBD2 sensor data provided for your 2009 BMW 335i, here is the analysis:\n\n1. **Engine Load (PID 0104):** The last reading is 52%, which is within a normal range for typical driving conditions. No issues here.\n\n2. **Coolant Temperature (PID 0105):** The last reading is 91\u00b0C. This is a typical operating temperature for your engine, indicating the cooling system is functioning properly.\n\n3. **Intake Air Temperature (PID 010F):** The last reading is 28\u00b0C, which is reasonable depending on ambient conditions. No concerns here.\n\n4. **Throttle Position (PID 0111):** The last reading is 24%. This is within a normal range, assuming the vehicle is not under heavy acceleration.\n\n5. **Short Term Fuel Trim Bank 1 (PID 0106) and Bank 2 (PID 0107):** The last readings are 1.6% and 2.3%, respectively. These values are within normal limits, indicating the air-fuel mixture is being adjusted correctly.\n\n6. **Long Term Fuel Trim Bank 1 (PID 0108) and Bank 2 (PID 0109):** The last readings are 0.8% and 1.6%, respectively. These are also within acceptable ranges, suggesting no significant issues with fuel delivery or air intake.\n\n7. **Oxygen Sensor Voltage (PID 0114 and 011B):** The last readings are 0.48V and 0.46V, respectively. These values are typical for a functioning oxygen sensor during closed-loop operation.\n\n8. **Oxygen Sensor Voltage (PID 0115 and 011C):** The last readings are 0.74V and 0.73V, respectively. These are normal and indicate proper sensor operation.\n\n9. **RPM (PID 010C):** The last reading is 2100 RPM. This is within a normal range for many driving conditions, such as cruising or light acceleration.\n\n10. **Vehicle Speed (PID 010D):** The last reading is 72 km/h. This is a typical speed and doesn't indicate any issues.\n\nOverall, the sensor readings appear to be within normal operating ranges for your vehicle. There are no unusual values or indications of immediate issues. \n\n**Recommendation:** Continue regular maintenance and monitoring. If you notice any performance issues or warning lights, consider having a professional diagnostic check performed.\n\n**Urgency Level: NORMAL** - No immediate concerns based on the current data.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 2,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 10,
+      "judge_notes": "Agent correctly identified normal operation with appropriate urgency level and no spurious issues."
+    },
+    "passed": true,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v1_20260415_232956",
+    "case_id": "BMW_006",
+    "vehicle_id": "bmw-335i-2009",
+    "scenario_tag": "data_completeness",
+    "prompt_label": "system_prompt_v1",
+    "agent_response": "Based on the OBD2 sensor data provided for your 2009 BMW 335i, here is the analysis:\n\n1. **Engine Coolant Temperature (PID 0105):** The value is consistently at 255, which is an unusual reading. This typically indicates a sensor fault or a communication error, as 255 is often a default or error value. The engine coolant temperature should be within a normal operating range (usually between 70\u00b0C to 100\u00b0C for most vehicles).\n\n2. **Engine RPM (PID 010C):** The RPM values range from 750 to 2800, with a mean of 1580 and a standard deviation of 480. These values seem within a reasonable range for idle and low-speed operation, but ensure that the RPMs are stable during normal driving conditions.\n\n3. **Vehicle Speed (PID 010D):** The speed ranges from 0 to 52 km/h, with a mean of 28 km/h. This suggests the data was captured during low-speed driving or idling, which is typical for city driving conditions.\n\n4. **Intake Air Temperature (PID 010F):** The intake air temperature is at 24\u00b0C, which is normal depending on the ambient temperature and engine conditions.\n\n5. **Mass Air Flow (PID 0110):** The MAF reading is 12.4 g/s, which is within a typical range for a 3.0L engine at idle or low load.\n\n6. **Throttle Position (PID 0111):** The throttle position ranges from 4% to 62%, with a mean of 22%. This indicates varying throttle inputs, which is normal during driving.\n\n7. **Oxygen Sensors (PIDs 0114, 0115, 011B, 011C):** The readings from the oxygen sensors appear normal, indicating that the air-fuel mixture is likely being managed correctly.\n\n**Recommendations:**\n\n- **Engine Coolant Temperature Sensor:** Given the constant reading of 255, it is advisable to check the engine coolant temperature sensor and its connections. This could be a sensor fault or an issue with the wiring or ECU.\n\n- **General Monitoring:** Continue to monitor the vehicle's performance. If you notice any unusual behavior such as overheating, poor fuel economy, or performance issues, further diagnostics may be necessary.\n\n**Urgency Level: HIGH**\n\nThe primary concern is the engine coolant temperature reading, which could lead to engine overheating if not addressed. It is recommended to have this checked by a professional mechanic as soon as possible to avoid potential engine damage.",
+    "scores": {
+      "urgency_correct": 1,
+      "root_cause_identified": 2,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 9,
+      "judge_notes": "Agent correctly identified the bogus ECT reading and recommended sensor check, but urgency was slightly overstated."
+    },
+    "passed": true,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v1_20260415_232956",
+    "case_id": "BMW_007",
+    "vehicle_id": "bmw-335i-2009",
+    "scenario_tag": "data_completeness",
+    "prompt_label": "system_prompt_v1",
+    "agent_response": "Based on the OBD2 sensor data provided for your 2009 BMW 335i, here is the analysis:\n\n1. **Engine Load (PID 0104)**: The last value is 48%, with a range from 38% to 64%. This is within a typical range for varying driving conditions, so no immediate concerns here.\n\n2. **Coolant Temperature (PID 0105)**: The last value is 90\u00b0C, which is normal for an engine at operating temperature. The range and mean are also within expected limits.\n\n3. **Intake Manifold Absolute Pressure (PID 010A)**: The last value is 342 kPa, which is typical for a turbocharged engine under boost. The range and mean values are consistent with expected performance.\n\n4. **Intake Air Temperature (PID 010F)**: The last value is 26\u00b0C, which is reasonable depending on ambient conditions and engine load.\n\n5. **Engine RPM (PID 010C)**: The last value is 1900 RPM, with a wide range from 750 to 3200 RPM. This variability is expected based on different driving conditions.\n\n6. **Vehicle Speed (PID 010D)**: The last value is 42 km/h, which is normal. The range indicates varied driving speeds.\n\n7. **Throttle Position (PID 0111)**: The last value is 22%, with a wide range from 4% to 72%. This variability is typical depending on acceleration and driving conditions.\n\n8. **Short Term Fuel Trim - Bank 1 (PID 0106)** and **Bank 2 (PID 0108)**: The last values are 4.7% and 3.9%, respectively. These are within normal limits, indicating the engine is adjusting fuel delivery appropriately.\n\n9. **Long Term Fuel Trim - Bank 1 (PID 0107)** and **Bank 2 (PID 0109)**: The last values are 3.1% and 2.3%, respectively. These are also within normal limits, suggesting no significant long-term adjustments are needed.\n\n10. **Oxygen Sensor Voltage - Bank 1 Sensor 1 (PID 0114)** and **Bank 2 Sensor 1 (PID 011B)**: The last values are 0.44V and 0.42V, respectively. These are typical for a functioning oxygen sensor during closed-loop operation.\n\n11. **Oxygen Sensor Voltage - Bank 1 Sensor 2 (PID 0115)** and **Bank 2 Sensor 2 (PID 011C)**: The last values are 0.73V and 0.72V, respectively. These values are consistent with a properly functioning catalytic converter.\n\n### Diagnosis:\nOverall, the sensor readings appear to be within normal operating ranges for your vehicle. There are no immediate red flags or unusual values that suggest a critical issue.\n\n### Recommendations:\n- Continue regular maintenance and monitoring of your vehicle.\n- If you notice any performance issues or warning lights, consider a more detailed diagnostic check.\n- Keep an eye on fuel trims and oxygen sensor readings for any significant changes over time, as these can indicate potential issues with the fuel system or exhaust.\n\n### Urgency Level: NORMAL\n\nYour vehicle appears to be functioning well based on the current data. Regular maintenance should keep it in good condition.",
+    "scores": {
+      "urgency_correct": 1,
+      "root_cause_identified": 0,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 0,
+      "vehicle_quirk_cited": 2,
+      "total": 5,
+      "judge_notes": "Agent failed to note missing MAF data, impacting diagnosis completeness."
+    },
+    "passed": false,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v1_20260415_232956",
+    "case_id": "BMW_008",
+    "vehicle_id": "bmw-335i-2009",
+    "scenario_tag": "diagnosis_accuracy",
+    "prompt_label": "system_prompt_v1",
+    "agent_response": "Based on the OBD2 sensor data provided for your 2009 BMW 335i, here is an analysis of the key parameters:\n\n1. **Engine Load (PID 0104):** The last reading is 42%, with a mean of 40%. This is within a normal range for typical driving conditions.\n\n2. **Engine Coolant Temperature (PID 0105):** The last reading is 91\u00b0C, which is typical for a warmed-up engine. The range (88\u00b0C to 95\u00b0C) is also normal.\n\n3. **Intake Manifold Absolute Pressure (PID 010B):** The last reading is 98 kPa, which is reasonable for a turbocharged engine under load. The range (88 kPa to 112 kPa) is consistent with expected turbo operation.\n\n4. **Engine RPM (PID 010C):** The last reading is 1850 RPM, with a wide range from 750 to 3200 RPM. This variability is normal depending on driving conditions.\n\n5. **Vehicle Speed (PID 010D):** The last reading is 38 km/h, with a range from 0 to 58 km/h. This is typical for city driving.\n\n6. **Mass Air Flow (PID 0110):** The last reading is 14.2 g/s, which is within a normal range for this engine type.\n\n7. **Throttle Position (PID 0111):** The last reading is 20%, with a range from 4% to 68%. This is expected based on varying acceleration demands.\n\n8. **Fuel Trim (Short Term Bank 1 and 2, PIDs 0106 and 0107):** The last readings are -6.3% and -7.8%, respectively. These values are slightly negative, indicating the ECU is reducing fuel slightly, which can be normal depending on driving conditions and fuel quality.\n\n9. **Oxygen Sensor Voltage (PIDs 0114, 0115, 011B, 011C):** The readings are within normal operating ranges, indicating proper function of the oxygen sensors.\n\n10. **Fuel Trim (Long Term Bank 1 and 2, PIDs 0108 and 0109):** The last readings are 2.3% and 1.6%, respectively. These are within normal limits, suggesting no significant long-term adjustments are being made by the ECU.\n\n**Unusual Observations:**\n- The **Intake Air Temperature (PID 010F)** is reading 24\u00b0C, which is slightly higher than ambient temperature but can be normal depending on engine bay heat.\n\n**Recommendations:**\n- No immediate action is required as the readings appear to be within normal operating ranges for your vehicle. However, regular maintenance and monitoring are advised to ensure continued performance.\n- If you notice any drivability issues or warning lights, consider a more detailed diagnostic check.\n\n**Urgency Level: NORMAL**\n\nYour vehicle's sensor readings do not indicate any critical issues at this time. Continue regular maintenance and monitoring to ensure optimal performance.",
+    "scores": {
+      "urgency_correct": 0,
+      "root_cause_identified": 0,
+      "bogus_value_handled": 0,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 4,
+      "judge_notes": "Agent failed to identify the stuck O2 sensor and incorrectly assessed urgency as normal."
+    },
+    "passed": false,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v1_20260415_232956",
+    "case_id": "BMW_009",
+    "vehicle_id": "bmw-335i-2009",
+    "scenario_tag": "urgency_calibration",
+    "prompt_label": "system_prompt_v1",
+    "agent_response": "Based on the OBD2 sensor data provided for your 2009 BMW 335i, here is the analysis:\n\n1. **Engine Load (PID 0104):** The last value is 88%, with a mean of 78% and a standard deviation of 12. This suggests that the engine is operating under a relatively high load. While this could be normal under certain driving conditions, consistently high engine load can indicate potential issues such as a clogged air filter or exhaust restriction.\n\n2. **Coolant Temperature (PID 0105):** The last value is 94\u00b0C, which is within the normal operating range for most engines. The mean is 93\u00b0C with a low standard deviation, indicating stable coolant temperatures.\n\n3. **Intake Manifold Pressure (PID 010B):** The last value is 228 kPa, with a mean of 185 kPa and a high standard deviation of 42. This variability could indicate issues with the turbocharger system or a vacuum leak. The high last value suggests the turbocharger is providing significant boost, which should be monitored for consistency.\n\n4. **Engine RPM (PID 010C):** The last value is 4200 RPM, with a mean of 3400 RPM. This is typical for a vehicle under acceleration or load but should be monitored to ensure it doesn't consistently run at high RPMs without reason.\n\n5. **Vehicle Speed (PID 010D):** The last value is 78 km/h, which is reasonable depending on driving conditions.\n\n6. **Fuel Trim (PIDs 0106, 0107, 0108, 0109):** The short-term and long-term fuel trims are within acceptable ranges, though the negative values suggest the engine is running slightly rich. This could be due to a variety of factors, including a dirty mass airflow sensor or issues with the fuel injectors.\n\n7. **Oxygen Sensor Voltages (PIDs 0114, 0115, 011B, 011C):** The voltages are within expected ranges, indicating that the oxygen sensors are functioning correctly.\n\n**Recommendations:**\n- Monitor the engine load and intake manifold pressure for any consistent high readings, which could indicate a need for further inspection of the turbocharger system or potential air intake/exhaust issues.\n- Consider checking the air filter and exhaust system for any blockages or restrictions.\n- If the vehicle exhibits any performance issues, such as hesitation or lack of power, further diagnostics may be necessary to ensure the turbocharger and fuel system are operating correctly.\n\n**Urgency Level: MEDIUM**\n- While there are no immediate critical issues, the variability in intake manifold pressure and high engine load readings warrant attention to prevent potential future problems. Regular monitoring and maintenance should help maintain vehicle performance and reliability.",
+    "scores": {
+      "urgency_correct": 1,
+      "root_cause_identified": 1,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 0,
+      "total": 6,
+      "judge_notes": "The agent missed the overboost urgency and root cause, focusing instead on IAT and engine load."
+    },
+    "passed": false,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v1_20260415_232956",
+    "case_id": "BMW_010",
+    "vehicle_id": "bmw-335i-2009",
+    "scenario_tag": "diagnosis_accuracy",
+    "prompt_label": "system_prompt_v1",
+    "agent_response": "Based on the OBD2 sensor data provided for your 2009 BMW 335i, here is an analysis of the readings:\n\n1. **Engine Load (PID 0104):** The last reading is 38%, which is within a typical range for normal driving conditions. The variation from min to max (28% to 52%) seems reasonable given different driving scenarios.\n\n2. **Coolant Temperature (PID 0105):** The last reading is 90\u00b0C, which is normal for a fully warmed-up engine. The range from 86\u00b0C to 95\u00b0C is also typical.\n\n3. **Intake Manifold Pressure (PID 010B):** The last reading is 96 kPa, which is within a normal range for a turbocharged engine like the N54. The variation from 86 kPa to 108 kPa is expected during different driving conditions.\n\n4. **Engine RPM (PID 010C):** The last reading is 1620 RPM, which is normal for idle or low-speed driving. The range from 740 RPM to 2800 RPM is typical for varying driving conditions.\n\n5. **Vehicle Speed (PID 010D):** The last reading is 28 km/h, which is normal. The range from 0 to 52 km/h indicates a mix of stationary and low-speed driving.\n\n6. **Mass Air Flow (PID 0110):** The last reading is 11.8 g/s, which is within a normal range for this engine type. The variation from 4.0 g/s to 18.4 g/s is expected.\n\n7. **Throttle Position (PID 0111):** The last reading is 16%, which is typical for low-speed or idle conditions. The range from 4% to 58% is normal.\n\n8. **Oxygen Sensor Voltage (PID 0114 & 0115):** The last readings are 0.18V and 0.72V, respectively. The first sensor (0114) shows a low voltage, which could indicate a lean condition or sensor issue. The second sensor (0115) is within a normal range.\n\n9. **Fuel Trim (PID 0108 & 0109):** The last readings are 1.6% and 2.3%, which are within normal limits. However, the negative minimum value for PID 0108 (-2.3%) suggests occasional lean conditions.\n\n10. **Fuel/Air Equivalence Ratio (PID 011B & 011C):** The last readings are 0.46 and 0.73, respectively. The first sensor (011B) shows a lower value, which might indicate a lean condition or sensor issue.\n\n### Recommendations:\n- **Oxygen Sensor Check:** The low voltage reading on PID 0114 suggests a potential issue with the oxygen sensor or a lean condition. Consider having the oxygen sensors checked and possibly replaced if they are faulty.\n- **Fuel System Inspection:** Given the occasional lean condition indicated by the negative fuel trim, it might be worthwhile to inspect the fuel system for any issues such as clogged injectors or a weak fuel pump.\n\n### Urgency Level: MEDIUM\nWhile the vehicle is currently operable, addressing the potential oxygen sensor issue and ensuring the fuel system is functioning correctly will help maintain optimal performance and fuel efficiency. It's advisable to address these issues soon to prevent any long-term damage or drivability issues.",
+    "scores": {
+      "urgency_correct": 0,
+      "root_cause_identified": 0,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 6,
+      "judge_notes": "The agent failed to identify the bank-specific lean condition and incorrectly suggested a system-wide fuel issue, with incorrect urgency level."
+    },
+    "passed": false,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v1_20260415_232956",
+    "case_id": "HONDA_001",
+    "vehicle_id": "honda-fit-2015",
+    "scenario_tag": "diagnosis_accuracy",
+    "prompt_label": "system_prompt_v1",
+    "agent_response": "Based on the OBD2 sensor data provided for your 2015 Honda Fit, here's an analysis of the readings:\n\n1. **PID 0104 (Calculated Engine Load):** \n   - Last: 38%\n   - This value is within a normal range for typical driving conditions. No issues here.\n\n2. **PID 0105 (Engine Coolant Temperature):**\n   - Last: 88\u00b0C\n   - The engine coolant temperature is within the normal operating range. No concerns.\n\n3. **PID 010B (Intake Manifold Absolute Pressure):**\n   - Last: 52 kPa\n   - This is a typical value for an engine at idle or low load. No issues detected.\n\n4. **PID 010C (Engine RPM):**\n   - Last: 740 RPM\n   - This is a normal idle RPM for your vehicle. No concerns here.\n\n5. **PID 010D (Vehicle Speed):**\n   - Last: 0 km/h\n   - The vehicle is stationary, which is expected if the data was captured at idle.\n\n6. **PID 010F (Intake Air Temperature):**\n   - Last: 28\u00b0C\n   - This is a reasonable intake air temperature, assuming moderate ambient conditions.\n\n7. **PID 0111 (Throttle Position):**\n   - Last: 5%\n   - This is typical for an idling engine. No issues detected.\n\n8. **PID 0114 (Oxygen Sensor 1 - Voltage):**\n   - Last: 0.14 V\n   - The mean value of 0.44 V suggests normal operation, but the last value is on the lower side. This could indicate a lean condition at the time of reading. Monitor for any changes or symptoms like rough idling or poor fuel economy.\n\n9. **PID 0115 (Oxygen Sensor 2 - Voltage):**\n   - Last: 0.71 V\n   - This value is within the expected range for a downstream sensor. No issues detected.\n\n10. **PID 0106 (Short Term Fuel Trim - Bank 1):**\n    - Last: 16.4%\n    - This is slightly higher than typical, indicating the engine is adding more fuel to compensate for a lean condition. This could be related to the low oxygen sensor reading.\n\n11. **PID 0107 (Long Term Fuel Trim - Bank 1):**\n    - Last: 14.1%\n    - This is also higher than normal, suggesting a persistent lean condition. It would be wise to check for vacuum leaks or issues with the fuel delivery system.\n\n12. **PID 012C (Commanded EGR):**\n    - Last: 62%\n    - This is within a normal range for EGR operation. No concerns here.\n\n13. **PID 012D (EGR Error):**\n    - Last: -18.4%\n    - A negative EGR error indicates the EGR system is operating more than commanded. This could be due to a malfunctioning EGR valve or sensor. It should be inspected further.\n\n**Diagnosis and Recommendations:**\n\n- **Oxygen Sensor and Fuel Trim:** The lean condition indicated by the oxygen sensor and fuel trim values should be investigated. Check for vacuum leaks, fuel injector issues, or a malfunctioning MAF sensor.\n- **EGR System:** The EGR error suggests the EGR system may not be functioning correctly. Inspect the EGR valve and related components for proper operation.\n\n**Urgency Level: MEDIUM**\n\nWhile the vehicle is currently operable, addressing the lean condition and EGR error is important to prevent potential long-term damage or reduced performance. Consider having a professional mechanic inspect these issues to ensure your vehicle continues to run smoothly.",
+    "scores": {
+      "urgency_correct": 1,
+      "root_cause_identified": 1,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 0,
+      "total": 6,
+      "judge_notes": "The agent partially identified the EGR issue but missed the Honda quirk and set urgency too low."
+    },
+    "passed": false,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v1_20260415_232956",
+    "case_id": "HONDA_002",
+    "vehicle_id": "honda-fit-2015",
+    "scenario_tag": "diagnosis_accuracy",
+    "prompt_label": "system_prompt_v1",
+    "agent_response": "Based on the OBD2 sensor data provided for your 2015 Honda Fit, here is the analysis:\n\n1. **Engine Load (PID 0104):** The last value is 42%, which is within a typical range for normal driving conditions. No immediate concerns here.\n\n2. **Coolant Temperature (PID 0105):** The last reading is 90\u00b0C. This is within the normal operating range for engine coolant temperature, which typically ranges from 85\u00b0C to 105\u00b0C. No issues detected.\n\n3. **Intake Manifold Absolute Pressure (PID 010B):** The last value is 58 kPa. This is within a normal range for a naturally aspirated engine at idle or low load. No concerns here.\n\n4. **Engine RPM (PID 010C):** The last reading is 1800 RPM. This is a normal value for an engine under moderate load or cruising. The range from 750 to 2800 RPM is also typical for various driving conditions.\n\n5. **Vehicle Speed (PID 010D):** The last value is 32 km/h. This is normal for driving in city conditions. The wide range from 0 to 52 km/h suggests varied driving conditions, which is typical.\n\n6. **Intake Air Temperature (PID 010F):** The last reading is 26\u00b0C, which is normal depending on ambient conditions. No issues here.\n\n7. **Throttle Position (PID 0111):** The last value is 18%. This is typical for light throttle application. The range from 4% to 62% indicates varied throttle use, which is normal.\n\n8. **Oxygen Sensor Voltage (PID 0114 and 0115):** The last readings are 0.46V and 0.73V, respectively. These values are within normal operating ranges for oxygen sensors, indicating proper fuel mixture.\n\n9. **Short Term Fuel Trim (PID 0106):** The last value is 2.3%. This is within the acceptable range of -10% to +10%, indicating the engine control unit is making minor adjustments to maintain the correct air-fuel mixture.\n\n10. **Long Term Fuel Trim (PID 0107):** The last value is 1.6%. This is also within the acceptable range, suggesting no significant long-term adjustments are needed.\n\n11. **Catalyst Temperature (PID 012C):** The last reading is 0\u00b0C, which seems unusual. However, the mean value is 0.4\u00b0C, indicating the sensor might not be active or correctly reporting. This could be a sensor issue or a data logging error.\n\n12. **Fuel Rail Pressure (PID 012D):** The last value is 0, with a range from -1.2 to 1.4. This seems unusual, as fuel rail pressure should typically be higher. This could indicate a sensor issue or a potential problem with the fuel system.\n\n**Recommendations:**\n- The catalyst temperature and fuel rail pressure readings are concerning. It would be advisable to have these sensors checked to ensure they are functioning correctly.\n- If the sensors are functioning properly, further investigation into the fuel system and exhaust system may be necessary to rule out any underlying issues.\n\n**Urgency Level: MEDIUM**\n- While most readings are normal, the potential issues with the catalyst temperature and fuel rail pressure warrant attention to prevent any future problems.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 0,
+      "bogus_value_handled": 1,
+      "data_gap_noted": 0,
+      "vehicle_quirk_cited": 2,
+      "total": 5,
+      "judge_notes": "Agent missed the inactive EGR system and focused on unrelated sensor issues."
+    },
+    "passed": false,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v1_20260415_232956",
+    "case_id": "HONDA_003",
+    "vehicle_id": "honda-fit-2015",
+    "scenario_tag": "urgency_calibration",
+    "prompt_label": "system_prompt_v1",
+    "agent_response": "Based on the OBD2 sensor data provided for your 2015 Honda Fit, here is the analysis:\n\n1. **Engine Load (PID 0104)**: The last reading is 34%, with a mean of 32%. This is within a normal range for typical driving conditions.\n\n2. **Coolant Temperature (PID 0105)**: The last reading is 88\u00b0C, with a mean of 88\u00b0C. This is within the normal operating range for engine coolant temperature, which typically ranges from 85\u00b0C to 105\u00b0C.\n\n3. **Intake Manifold Absolute Pressure (PID 010B)**: The last reading is 62 kPa, with a mean of 58 kPa. This is within a normal range, although the maximum value of 98 kPa is quite high, suggesting the engine may have been under heavy load at some point.\n\n4. **Engine RPM (PID 010C)**: The last reading is 1400 RPM, with a mean of 1320 RPM. These values are typical for idle or low-speed driving.\n\n5. **Vehicle Speed (PID 010D)**: The last reading is 22 km/h, with a mean of 18 km/h. This is consistent with low-speed driving.\n\n6. **Intake Air Temperature (PID 010F)**: The last reading is 26\u00b0C, with a mean of 26\u00b0C. This is a normal range for intake air temperature.\n\n7. **Throttle Position (PID 0111)**: The last reading is 14%, with a mean of 18%. This is typical for low-speed or idle conditions.\n\n8. **Oxygen Sensor Voltage (PID 0114 & 0115)**: The readings are 0.44V and 0.73V, respectively. These are within expected ranges, indicating normal operation of the oxygen sensors.\n\n9. **Short Term Fuel Trim (PID 0106)**: The last reading is 1.6%, with a mean of 1.2%. This indicates the fuel mixture is being adjusted slightly, which is normal.\n\n10. **Long Term Fuel Trim (PID 0107)**: The last reading is 2.3%, with a mean of 2.1%. This is within a normal range, suggesting no significant long-term adjustments are needed.\n\n11. **Catalyst Temperature (PID 012C)**: The last reading is 18\u00b0C, with a mean of 14\u00b0C. This seems unusually low for a catalyst temperature, which typically should be much higher during operation. This could indicate an issue with the sensor or that the vehicle was not fully warmed up.\n\n12. **Fuel Rail Pressure (PID 012D)**: The last reading is 1.4 bar, with a mean of 0.8 bar. These values seem low for a fuel rail pressure, which typically should be higher. This could indicate a potential issue with the fuel delivery system.\n\n**Recommendations:**\n- **Catalyst Temperature**: Verify the sensor's accuracy and ensure the vehicle is fully warmed up before taking readings. If the issue persists, have the exhaust system inspected.\n- **Fuel Rail Pressure**: Consider having the fuel system checked, including the fuel pump and pressure regulator, to ensure proper fuel delivery.\n\n**Urgency Level: MEDIUM**\n- The vehicle is generally operating within normal parameters, but the low catalyst temperature and fuel rail pressure warrant further investigation to prevent potential issues.",
+    "scores": {
+      "urgency_correct": 1,
+      "root_cause_identified": 0,
+      "bogus_value_handled": 1,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 6,
+      "judge_notes": "The agent incorrectly assigned a MEDIUM urgency and misdiagnosed normal variances as faults."
+    },
+    "passed": false,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v1_20260415_232956",
+    "case_id": "HONDA_004",
+    "vehicle_id": "honda-fit-2015",
+    "scenario_tag": "data_completeness",
+    "prompt_label": "system_prompt_v1",
+    "agent_response": "Based on the OBD2 sensor data provided for your 2015 Honda Fit, here is the analysis of the readings:\n\n1. **0104 - Calculated Engine Load (%):** \n   - Last: 58%\n   - This value is within a normal range for typical driving conditions. No issues here.\n\n2. **0105 - Engine Coolant Temperature (\u00b0C):**\n   - Last: 92\u00b0C\n   - The engine coolant temperature is slightly on the higher side, but still within an acceptable range. Ensure that the cooling system is functioning properly, especially if you notice any overheating symptoms.\n\n3. **010B - Intake Manifold Absolute Pressure (kPa):**\n   - Last: 82 kPa\n   - The range is quite broad (52-112 kPa), which could indicate varying engine loads. The last value is within a normal range for moderate engine load.\n\n4. **010C - Engine RPM:**\n   - Last: 2200 RPM\n   - This is a normal RPM for a vehicle in motion. No concerns here.\n\n5. **010D - Vehicle Speed (km/h):**\n   - Last: 62 km/h\n   - The speed is consistent with normal driving conditions. No issues.\n\n6. **010F - Intake Air Temperature (\u00b0C):**\n   - Last: 38\u00b0C\n   - This is a reasonable intake air temperature, especially if the vehicle was driven in warm conditions.\n\n7. **0111 - Throttle Position (%):**\n   - Last: 28%\n   - The throttle position seems normal for moderate acceleration or cruising.\n\n8. **0114 - Oxygen Sensor 1 Voltage (V):**\n   - Last: 0.46 V\n   - The oxygen sensor voltage is within a typical range, indicating normal operation of the air-fuel mixture.\n\n9. **0115 - Oxygen Sensor 2 Voltage (V):**\n   - Last: 0.74 V\n   - This is also within a normal range, suggesting the catalytic converter is functioning properly.\n\n10. **0106 - Short Term Fuel Trim - Bank 1 (%):**\n    - Last: 3.1%\n    - This is within a normal range, indicating that the engine control unit is making minor adjustments to the air-fuel mixture.\n\n11. **0107 - Long Term Fuel Trim - Bank 1 (%):**\n    - Last: 2.3%\n    - This is also within a normal range, suggesting no significant long-term adjustments are needed.\n\n12. **012C - Commanded EGR (%):**\n    - Last: 22%\n    - The EGR valve seems to be operating normally, as the commanded percentage is within a typical range.\n\n13. **012D - EGR Error (%):**\n    - Last: 2.1%\n    - The EGR error is minimal, indicating the EGR system is functioning properly.\n\n**Diagnosis and Recommendations:**\n\n- Overall, the sensor readings appear normal with no critical issues detected. The slightly higher engine coolant temperature should be monitored, especially if you experience any signs of overheating. Ensure that the coolant level is adequate and that the radiator and cooling fans are functioning properly.\n\n- If you notice any unusual symptoms such as overheating, loss of power, or increased fuel consumption, it would be prudent to have a professional mechanic inspect the vehicle.\n\n**Urgency Level: NORMAL**\n\nYour vehicle appears to be in good health based on the current sensor data. Regular maintenance and monitoring should keep it running smoothly.",
+    "scores": {
+      "urgency_correct": 1,
+      "root_cause_identified": 0,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 0,
+      "vehicle_quirk_cited": 0,
+      "total": 3,
+      "judge_notes": "The agent failed to note the missing CVT temperature data gap and incorrectly set urgency to NORMAL instead of LOW."
+    },
+    "passed": false,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v1_20260415_232956",
+    "case_id": "HONDA_005",
+    "vehicle_id": "honda-fit-2015",
+    "scenario_tag": "diagnosis_accuracy",
+    "prompt_label": "system_prompt_v1",
+    "agent_response": "Based on the OBD2 sensor data provided for your 2015 Honda Fit, here is the analysis:\n\n1. **Engine Load (PID 0104):** The last reading is 28%, which is within a normal range for typical driving conditions. The variation (std of 8.2) is also reasonable.\n\n2. **Coolant Temperature (PID 0105):** The last reading is 89\u00b0C, which is normal for engine operating temperature. The range and standard deviation are also typical.\n\n3. **Intake Manifold Pressure (PID 010B):** The last reading is 48 kPa. The range from 38 to 72 kPa is broad but can be normal depending on driving conditions. The mean and standard deviation suggest typical fluctuations.\n\n4. **Engine RPM (PID 010C):** The last reading is 820 RPM, which is normal for idle. However, the max value of 2200 RPM is high for idle but could be normal if the vehicle was accelerating. The mean of 980 RPM suggests some higher RPM operation, which is typical.\n\n5. **Vehicle Speed (PID 010D):** The last reading is 0 km/h, indicating the vehicle is stationary. The max of 38 km/h is low, suggesting city driving or short trips.\n\n6. **Intake Air Temperature (PID 010F):** The last reading is 24\u00b0C, which is normal. The range and standard deviation are typical.\n\n7. **Throttle Position (PID 0111):** The last reading is 6%, which is low, indicating idle or low acceleration. The max of 48% suggests moderate acceleration at some point.\n\n8. **Oxygen Sensor 1 Voltage (PID 0114):** The last reading is 0.78V, which is within the expected range for a functioning sensor. The variation is normal.\n\n9. **Oxygen Sensor 2 Voltage (PID 0115):** The last reading is 0.74V, which is also within the expected range. The low standard deviation indicates stable readings.\n\n10. **Short Term Fuel Trim Bank 1 (PID 0106):** The last reading is -13.3%, which is slightly rich. The range suggests some variability, but this could be normal depending on driving conditions.\n\n11. **Long Term Fuel Trim Bank 1 (PID 0107):** The last reading is -11.7%, indicating a rich condition. This is slightly concerning as it suggests the engine is consistently running rich, which could affect fuel efficiency and emissions.\n\n12. **Catalyst Temperature Bank 1 Sensor 1 (PID 012C):** The last reading is 0\u00b0C, which seems incorrect. This could indicate a sensor issue or a data reading error.\n\n13. **Catalyst Temperature Bank 1 Sensor 2 (PID 012D):** The last reading is 0.8\u00b0C, which is also unusually low. This further suggests a potential sensor issue.\n\n**Recommendations:**\n- The rich fuel trim readings (PIDs 0106 and 0107) should be investigated further. This could be due to a faulty oxygen sensor, a vacuum leak, or an issue with the fuel system.\n- The catalyst temperature readings (PIDs 012C and 012D) are concerning. Verify the sensor functionality and check for any related error codes.\n- Consider having a professional mechanic perform a diagnostic check to ensure all sensors are functioning correctly and to address the rich running condition.\n\n**Urgency Level: MEDIUM**\n- While the vehicle is currently operable, addressing the rich fuel condition and verifying sensor functionality is important to prevent potential long-term issues.",
+    "scores": {
+      "urgency_correct": 1,
+      "root_cause_identified": 0,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 0,
+      "vehicle_quirk_cited": 2,
+      "total": 5,
+      "judge_notes": "The agent failed to identify the root cause and set the urgency too low, but correctly handled the bogus catalyst temperature readings."
+    },
+    "passed": false,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v1_20260415_232956",
+    "case_id": "HONDA_006",
+    "vehicle_id": "honda-fit-2015",
+    "scenario_tag": "data_completeness",
+    "prompt_label": "system_prompt_v1",
+    "agent_response": "Based on the OBD2 sensor data provided for your 2015 Honda Fit, here is an analysis of the readings:\n\n1. **0104 - Calculated Engine Load (%):**\n   - Last: 38%\n   - This value seems normal for typical driving conditions.\n\n2. **0105 - Engine Coolant Temperature (\u00b0C):**\n   - Last: 89\u00b0C\n   - This is within the normal operating range for engine coolant temperature.\n\n3. **010B - Intake Manifold Absolute Pressure (kPa):**\n   - Last: 255 kPa\n   - This reading is unusually high and constant. Typically, this value should fluctuate with engine load and RPM. A stuck sensor or a faulty MAP sensor could be the cause.\n\n4. **010C - Engine RPM:**\n   - Last: 1600 RPM\n   - The range and mean values are normal for idle and low-speed driving.\n\n5. **010D - Vehicle Speed (km/h):**\n   - Last: 28 km/h\n   - This is consistent with low-speed driving.\n\n6. **010F - Intake Air Temperature (\u00b0C):**\n   - Last: 24\u00b0C\n   - This is a typical value depending on ambient conditions.\n\n7. **0111 - Throttle Position (%):**\n   - Last: 18%\n   - This is a reasonable value for low-speed driving.\n\n8. **0114 - Oxygen Sensor 1 Voltage (V):**\n   - Last: 0.44 V\n   - The range and mean values are typical for a functioning oxygen sensor.\n\n9. **0115 - Oxygen Sensor 2 Voltage (V):**\n   - Last: 0.73 V\n   - This is within the expected range for a downstream oxygen sensor.\n\n10. **0106 - Short Term Fuel Trim - Bank 1 (%):**\n    - Last: 2.3%\n    - This is within the normal range, indicating proper fuel mixture adjustments.\n\n11. **0107 - Long Term Fuel Trim - Bank 1 (%):**\n    - Last: 1.6%\n    - This is also within the normal range.\n\n12. **012C - Commanded EGR (%):**\n    - Last: 16%\n    - This is a typical value for EGR operation.\n\n13. **012D - EGR Error (%):**\n    - Last: 1.2%\n    - This is a low error percentage, indicating the EGR system is functioning correctly.\n\n**Diagnosis and Recommendations:**\n\n- The constant and high value for the Intake Manifold Absolute Pressure (PID 010B) is concerning. This could indicate a faulty MAP sensor or an issue with the sensor's wiring. It is recommended to have this sensor checked and possibly replaced.\n- All other sensor readings appear to be within normal operating ranges.\n\n**Urgency Level: HIGH**\n\nThe high and constant MAP sensor reading should be addressed promptly to avoid potential drivability issues or engine performance problems. It is advisable to consult with a professional mechanic to diagnose and resolve this issue.",
+    "scores": {
+      "urgency_correct": 1,
+      "root_cause_identified": 1,
+      "bogus_value_handled": 1,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 0,
+      "total": 5,
+      "judge_notes": "The agent flagged the MAP reading as unusual but did not identify it as a stuck/bogus reading or mention the Honda scanner quirk."
+    },
+    "passed": false,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v1_20260415_232956",
+    "case_id": "HONDA_007",
+    "vehicle_id": "honda-fit-2015",
+    "scenario_tag": "urgency_calibration",
+    "prompt_label": "system_prompt_v1",
+    "agent_response": "Based on the OBD2 sensor data provided for your 2015 Honda Fit, here's an analysis of the readings:\n\n1. **Engine Load (PID 0104)**: The last reading is 32%, with a range from 22% to 52%. This is within a normal range for typical driving conditions.\n\n2. **Engine Coolant Temperature (PID 0105)**: The last reading is 88\u00b0C, with a range from 84\u00b0C to 93\u00b0C. This is normal for engine operating temperatures.\n\n3. **Intake Manifold Pressure (PID 010B)**: The last reading is 58 kPa, with a range from 44 kPa to 82 kPa. These values are within a normal range for a naturally aspirated engine.\n\n4. **Engine RPM (PID 010C)**: The last reading is 1200 RPM, with a range from 720 RPM to 2200 RPM. The mean RPM is 1150, which is typical for idling and low-speed driving.\n\n5. **Vehicle Speed (PID 010D)**: The last reading is 18 km/h, with a range from 0 to 38 km/h. This indicates low-speed driving, which is normal.\n\n6. **Intake Air Temperature (PID 010F)**: The last reading is 26\u00b0C, with a range from 20\u00b0C to 30\u00b0C. This is within a normal range.\n\n7. **Throttle Position (PID 0111)**: The last reading is 12%, with a range from 4% to 52%. The mean is 14%, which is typical for low-speed or idling conditions.\n\n8. **Oxygen Sensor 1 Voltage (PID 0114)**: The last reading is 0.52V, with a range from 0.18V to 0.78V. This is within a normal range for a functioning oxygen sensor.\n\n9. **Oxygen Sensor 2 Voltage (PID 0115)**: The last reading is 0.72V, with a range from 0.66V to 0.77V. This is also within a normal range.\n\n10. **Short Term Fuel Trim Bank 1 (PID 0106)**: The last reading is 5.5%, with a range from -3.9% to 9.4%. The mean is 3.8%, which is within a normal range, indicating the fuel mixture is being adjusted correctly.\n\n11. **Long Term Fuel Trim Bank 1 (PID 0107)**: The last reading is 4.7%, with a range from 2.3% to 7.0%. This is within a normal range, suggesting no long-term fuel mixture issues.\n\n12. **Catalyst Temperature Bank 1 Sensor 1 (PID 012C)**: The last reading is 14\u00b0C, with a range from 0\u00b0C to 22\u00b0C. This seems unusually low for a catalyst temperature, which typically should be much higher when the engine is running. This could indicate a sensor issue or that the engine was not fully warmed up.\n\n13. **Catalyst Temperature Bank 1 Sensor 2 (PID 012D)**: The last reading is 1.8\u00b0C, with a range from -2.8\u00b0C to 3.8\u00b0C. This is also unusually low and suggests a potential issue with the sensor or that the engine was not at operating temperature.\n\n**Diagnosis and Recommendations:**\n\n- The catalyst temperatures (PIDs 012C and 012D) are unusually low, which could indicate a sensor malfunction or that the vehicle was not fully warmed up during the data capture. It is recommended to verify the sensor readings with the engine fully warmed up. If the readings remain low, consider having the sensors checked or replaced.\n\n- All other sensor readings appear to be within normal operating ranges.\n\n**Urgency Level: MEDIUM**\n\nWhile the vehicle is currently operating within normal parameters, the unusual catalyst temperature readings should be addressed to ensure proper emissions control and prevent potential issues with the catalytic converter.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 0,
+      "bogus_value_handled": 1,
+      "data_gap_noted": 0,
+      "vehicle_quirk_cited": 2,
+      "total": 5,
+      "judge_notes": "Agent missed the sluggish upstream O2 sensor issue and focused incorrectly on catalyst temperature, but urgency was correct."
+    },
+    "passed": false,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v1_20260415_232956",
+    "case_id": "HONDA_008",
+    "vehicle_id": "honda-fit-2015",
+    "scenario_tag": "diagnosis_accuracy",
+    "prompt_label": "system_prompt_v1",
+    "agent_response": "Based on the OBD2 sensor data provided for your 2015 Honda Fit, here's the analysis:\n\n1. **Engine Load (PID 0104):** The last reading is 42%, which is within a normal range for typical driving conditions. No issues here.\n\n2. **Coolant Temperature (PID 0105):** The last reading is 90\u00b0C. This is within the normal operating range for most engines, which typically run between 85\u00b0C and 105\u00b0C. No concerns here.\n\n3. **Intake Manifold Pressure (PID 010B):** The last reading is 68 kPa, which is normal for a naturally aspirated engine at idle or low load.\n\n4. **Engine RPM (PID 010C):** The last reading is 820 RPM, which is typical for idle speed in most vehicles.\n\n5. **Vehicle Speed (PID 010D):** The reading is consistently 0, indicating the vehicle was stationary during the data capture. This is expected if the car was idling.\n\n6. **Intake Air Temperature (PID 010F):** The last reading is 26\u00b0C, which is reasonable depending on ambient conditions.\n\n7. **Throttle Position (PID 0111):** The last reading is 4%, which is typical for idle or low throttle conditions.\n\n8. **Oxygen Sensor Output Voltage (PID 0114 & 0115):** The readings are 0.46V and 0.73V, respectively. These values are within normal operating ranges, indicating the oxygen sensors are functioning correctly.\n\n9. **Short Term Fuel Trim (PID 0106):** The last reading is -3.1%. This is within an acceptable range, typically between -10% and +10%, indicating the engine is running efficiently.\n\n10. **Long Term Fuel Trim (PID 0107):** The last reading is -2.3%, which is also within the acceptable range.\n\n11. **Catalyst Temperature (PID 012C):** The last reading is 0\u00b0C, which is unusual. However, given the vehicle speed is 0, this could indicate the sensor was not active or the vehicle was not running long enough to heat the catalyst.\n\n12. **Evaporative System Vapor Pressure (PID 012D):** The last reading is 0.4 kPa, which is within a typical range. However, the minimum reading of -1.0 kPa could indicate a potential issue with the evaporative emissions system, but it is not critical.\n\n**Recommendations:**\n- The data suggests that the vehicle is in generally good health with no critical issues.\n- The zero reading for the catalyst temperature may warrant further investigation if the vehicle was running for a significant period. Consider checking the catalyst temperature sensor if this persists.\n- Monitor the evaporative system vapor pressure for any further negative readings, which could indicate a minor issue with the evaporative emissions system.\n\n**Urgency Level: NORMAL**\n\nOverall, your vehicle appears to be functioning well with no immediate concerns. Regular maintenance and monitoring should keep it in good condition.",
+    "scores": {
+      "urgency_correct": 1,
+      "root_cause_identified": 0,
+      "bogus_value_handled": 1,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 0,
+      "total": 4,
+      "judge_notes": "The agent failed to identify the root cause and incorrectly assessed the urgency as normal."
+    },
+    "passed": false,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v1_20260415_232956",
+    "case_id": "HONDA_009",
+    "vehicle_id": "honda-fit-2015",
+    "scenario_tag": "data_completeness",
+    "prompt_label": "system_prompt_v1",
+    "agent_response": "Based on the OBD2 sensor data provided for your 2015 Honda Fit, here is an analysis of the readings:\n\n1. **Engine Load (PID 0104):** The last reading is 36%, with a mean of 34%. This is within a typical range for normal driving conditions.\n\n2. **Coolant Temperature (PID 0105):** The last reading is 89\u00b0C, which is normal for a warmed-up engine. The range (85\u00b0C to 94\u00b0C) is also typical.\n\n3. **Intake Manifold Absolute Pressure (PID 010B):** The last reading is 58 kPa, with a mean of 56 kPa. This is within a normal range for a naturally aspirated engine like the L15B7.\n\n4. **Engine RPM (PID 010C):** The last reading is 1450 RPM, which is reasonable for idle or low-speed driving. The range (720 to 2600 RPM) suggests normal operation across various driving conditions.\n\n5. **Vehicle Speed (PID 010D):** The last reading is 24 km/h, which is consistent with city driving. The range (0 to 42 km/h) indicates low-speed operation, possibly in traffic.\n\n6. **Intake Air Temperature (PID 010F):** The last reading is 24\u00b0C, which is normal depending on ambient conditions.\n\n7. **Throttle Position (PID 0111):** The last reading is 14%, with a wide range (4% to 58%). This variability is expected as throttle position changes with acceleration and deceleration.\n\n8. **Oxygen Sensor 1 Voltage (PID 0114):** The last reading is 0.44V, which is within the expected range for a functioning oxygen sensor.\n\n9. **Oxygen Sensor 2 Voltage (PID 0115):** The last reading is 0.72V, which is also within the expected range.\n\n10. **Short Term Fuel Trim Bank 1 (PID 0106):** The last reading is 2.3%, which is within the acceptable range (-10% to +10%).\n\n11. **Long Term Fuel Trim Bank 1 (PID 0107):** The last reading is 1.6%, also within the acceptable range.\n\n**Observations and Recommendations:**\n\n- All sensor readings appear to be within normal operating ranges for your vehicle. There are no unusual values that suggest immediate issues.\n- The standard deviations for some parameters (e.g., engine RPM and throttle position) indicate normal variability due to changing driving conditions.\n- Continue regular maintenance and monitoring. If you notice any performance issues or warning lights, consider further diagnostics.\n\n**Urgency Level: NORMAL**\n\nYour vehicle's sensor data does not indicate any immediate concerns. Keep up with routine maintenance and monitoring to ensure continued performance.",
+    "scores": {
+      "urgency_correct": 0,
+      "root_cause_identified": 0,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 0,
+      "vehicle_quirk_cited": 2,
+      "total": 4,
+      "judge_notes": "Agent failed to note missing EGR PIDs and incorrectly assigned NORMAL urgency."
+    },
+    "passed": false,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v1_20260415_232956",
+    "case_id": "TUNDRA_001",
+    "vehicle_id": "tundra-2007",
+    "scenario_tag": "diagnosis_accuracy",
+    "prompt_label": "system_prompt_v1",
+    "agent_response": "Based on the OBD2 sensor data provided for your 2007 Toyota Tundra with a 5.7L V8 engine, here is the analysis:\n\n1. **Engine Load (PID 0104):** The last reading is 28%, with a mean of 24%. This is within a normal range for typical driving conditions.\n\n2. **Coolant Temperature (PID 0105):** The last reading is 42\u00b0C, with a mean of 36\u00b0C. This seems a bit low for a fully warmed-up engine, which typically operates between 85\u00b0C to 105\u00b0C. This could indicate a potential issue with the thermostat or coolant system.\n\n3. **Intake Manifold Pressure (PID 010B):** The last reading is 88 kPa, which is reasonable for a naturally aspirated engine at sea level.\n\n4. **Engine RPM (PID 010C):** The last reading is 780 RPM, with a mean of 820 RPM. This is typical for an idling engine.\n\n5. **Vehicle Speed (PID 010D):** The reading is consistently 0, indicating the vehicle was stationary during the data capture.\n\n6. **Intake Air Temperature (PID 010F):** The last reading is 14\u00b0C, which is normal depending on the ambient temperature.\n\n7. **Mass Air Flow (PID 0110):** The last reading is 6.2 g/s, which is typical for an idling engine of this size.\n\n8. **Throttle Position (PID 0111):** The last reading is 5%, which is expected for an idling engine.\n\n9. **Oxygen Sensor 1 (PID 0114 & 0115):** The readings show variability, which is normal as the sensors adjust the air-fuel mixture. However, the mean value of 0.46 for PID 0114 suggests a lean condition at times, which might need monitoring.\n\n10. **Oxygen Sensor 2 (PID 011B & 011C):** Similar to the first set of sensors, the variability is expected. The mean values are within normal ranges.\n\n11. **Short Term Fuel Trim (PID 0106):** The last reading is 8.6%, which is slightly higher than typical (usually within \u00b15%). This could indicate a minor adjustment to compensate for a lean condition.\n\n12. **Long Term Fuel Trim (PID 0107):** The last reading is 6.3%, which is also slightly higher than typical. This suggests a persistent adjustment to the air-fuel mixture.\n\n13. **Fuel System Status (PID 0108 & 0109):** The readings are within normal ranges, indicating the fuel system is functioning as expected.\n\n**Diagnosis and Recommendations:**\n\n- The coolant temperature appears lower than expected. Check the thermostat and ensure the cooling system is functioning properly. This could prevent the engine from reaching optimal operating temperature, affecting fuel efficiency and emissions.\n- The slightly elevated fuel trims suggest the engine might be running lean at times. Consider checking for vacuum leaks or issues with the fuel delivery system.\n- Monitor the oxygen sensor readings for any persistent lean conditions, which could indicate a need for further investigation.\n\n**Urgency Level: MEDIUM**\n\nWhile the vehicle is operational, addressing the coolant temperature and fuel trim issues will help maintain engine efficiency and prevent potential long-term damage. It is advisable to have these checked by a professional mechanic soon.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 0,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 0,
+      "vehicle_quirk_cited": 0,
+      "total": 4,
+      "judge_notes": "Agent failed to identify SAI pump issue and did not mention Tundra's known quirk."
+    },
+    "passed": false,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v1_20260415_232956",
+    "case_id": "TUNDRA_002",
+    "vehicle_id": "tundra-2007",
+    "scenario_tag": "diagnosis_accuracy",
+    "prompt_label": "system_prompt_v1",
+    "agent_response": "Based on the OBD2 sensor data provided for your 2007 Toyota Tundra with a 5.7L V8 engine, here's the analysis:\n\n1. **Engine Load (PID 0104):** The last reading is 44%, with a mean of 42% and a standard deviation of 8.4. This is within a normal range for typical driving conditions.\n\n2. **Coolant Temperature (PID 0105):** The last reading is 91\u00b0C, which is within the normal operating range for most engines (typically between 85\u00b0C and 105\u00b0C).\n\n3. **Intake Air Temperature (PID 010F):** The last reading is 28\u00b0C, which is reasonable depending on ambient conditions.\n\n4. **RPM (PID 010C):** The last reading is 1800 RPM, with a mean of 1680 RPM. This is typical for idle or low-speed driving.\n\n5. **Vehicle Speed (PID 010D):** The last reading is 32 km/h, which is consistent with low-speed driving.\n\n6. **Mass Air Flow (MAF) Rate (PID 0110):** The last reading is 14.6 g/s. This value seems reasonable for a V8 engine under moderate load.\n\n7. **Throttle Position (PID 0111):** The last reading is 18%. This is typical for low-speed or idle conditions.\n\n8. **Oxygen Sensor Voltage (PIDs 0114, 0115, 011B, 011C):** The readings are within expected ranges, indicating normal operation of the oxygen sensors.\n\n9. **Short Term Fuel Trim (PID 0106, 0107):** The last readings are 2.3% and 1.6%, respectively. These are within normal limits, indicating that the engine is adjusting fuel delivery appropriately.\n\n10. **Long Term Fuel Trim (PID 0108, 0109):** The last readings are -8.6% and -7.0%, respectively. These values are slightly negative, suggesting the engine is running slightly rich. While not immediately concerning, it could indicate a need for further investigation if these values persist or worsen.\n\n### Recommendations:\n- **Monitor Fuel Trim:** The slightly negative long-term fuel trim values suggest the engine may be running rich. This could be due to a variety of factors, such as a dirty air filter, a malfunctioning MAF sensor, or an issue with the fuel injectors. Consider checking these components if the issue persists.\n- **Regular Maintenance:** Ensure regular maintenance is performed, including air filter replacement and checking for any vacuum leaks, which could affect fuel trim.\n\n### Urgency Level: LOW\nThe vehicle's sensor readings are generally within normal ranges, with only minor deviations noted in the long-term fuel trim. No immediate action is required, but monitoring and routine maintenance are advised to ensure continued optimal performance.",
+    "scores": {
+      "urgency_correct": 0,
+      "root_cause_identified": 0,
+      "bogus_value_handled": 0,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 0,
+      "total": 2,
+      "judge_notes": "Agent failed to identify erratic O2 sensor and heat damage quirk, and incorrectly assessed urgency as low."
+    },
+    "passed": false,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v1_20260415_232956",
+    "case_id": "TUNDRA_003",
+    "vehicle_id": "tundra-2007",
+    "scenario_tag": "urgency_calibration",
+    "prompt_label": "system_prompt_v1",
+    "agent_response": "Based on the OBD2 sensor data provided for your 2007 Toyota Tundra with a 5.7L V8 engine, here is the analysis:\n\n1. **Engine Load (PID 0104):** The last reading is 38%, with a range from 26% to 55%. This is within a normal range for typical driving conditions.\n\n2. **Coolant Temperature (PID 0105):** The last reading is 90\u00b0C, which is normal for engine operating temperature. The range is also within expected limits.\n\n3. **Intake Air Temperature (PID 010F):** The last reading is 26\u00b0C, which is reasonable depending on the ambient temperature and engine conditions.\n\n4. **RPM (PID 010C):** The last reading is 1650 RPM, with a range from 740 to 2800 RPM. This is typical for idle to moderate driving conditions.\n\n5. **Vehicle Speed (PID 010D):** The last reading is 28 km/h, which is consistent with city driving speeds.\n\n6. **Mass Air Flow (PID 0110):** The last reading is 12.8 g/s, which is typical for a V8 engine at moderate load.\n\n7. **Throttle Position (PID 0111):** The last reading is 16%, which is normal for partial throttle.\n\n8. **Oxygen Sensor Readings (PIDs 0114, 0115, 011B, 011C):** The readings are within normal ranges, indicating that the air-fuel mixture is likely balanced.\n\n9. **Short Term Fuel Trim (PIDs 0106, 0107, 0108, 0109):** The values are within acceptable ranges, suggesting that the engine is adjusting fuel delivery appropriately.\n\n**Unusual Observations:**\n\n- **Fuel Trim Variability:** The standard deviation for short-term fuel trims (PIDs 0106, 0107, 0108, 0109) is relatively high, indicating some variability. While the mean values are within normal limits, this variability could suggest minor issues with fuel delivery or sensor accuracy. However, it is not immediately concerning unless accompanied by drivability issues or a check engine light.\n\n**Recommendations:**\n\n- **Monitor Fuel Trim:** Keep an eye on the fuel trim readings over time. If you notice any drivability issues such as rough idling, hesitation, or poor fuel economy, consider having the fuel system and sensors checked by a professional.\n  \n- **Regular Maintenance:** Ensure regular maintenance is performed, including air filter and spark plug checks, to maintain optimal engine performance.\n\n**Urgency Level: NORMAL**\n\nOverall, the vehicle's sensor readings appear normal, with no immediate issues requiring urgent attention. Regular monitoring and maintenance should keep your vehicle running smoothly.",
+    "scores": {
+      "urgency_correct": 0,
+      "root_cause_identified": 0,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 0,
+      "total": 4,
+      "judge_notes": "Agent failed to assign LOW urgency and missed the aftermarket gas cap quirk for the EVAP code."
+    },
+    "passed": false,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v1_20260415_232956",
+    "case_id": "TUNDRA_004",
+    "vehicle_id": "tundra-2007",
+    "scenario_tag": "urgency_calibration",
+    "prompt_label": "system_prompt_v1",
+    "agent_response": "Based on the OBD2 sensor data provided for your 2007 Toyota Tundra with a 5.7L V8 engine, here is the analysis:\n\n1. **Engine Load (PID 0104):** The last reading is 54%, which is within the normal range for typical driving conditions. No issues here.\n\n2. **Coolant Temperature (PID 0105):** The last reading is 90\u00b0C, which is normal for engine operating temperature. This indicates the cooling system is functioning properly.\n\n3. **Intake Manifold Absolute Pressure (PID 010B):** The last reading is 104 kPa. This is within a normal range for a naturally aspirated engine under load.\n\n4. **Engine RPM (PID 010C):** The last reading is 2000 RPM. This is typical for a vehicle in motion and not idling.\n\n5. **Vehicle Speed (PID 010D):** The last reading is 68 km/h, which is normal for driving conditions.\n\n6. **Intake Air Temperature (PID 010F):** The last reading is 28\u00b0C, which is reasonable depending on ambient temperature and engine load.\n\n7. **Mass Air Flow (PID 0110):** The last reading is 22.4 g/s. This is typical for a V8 engine at moderate load.\n\n8. **Throttle Position (PID 0111):** The last reading is 22%, which is normal for cruising or light acceleration.\n\n9. **Oxygen Sensor Outputs (PIDs 0114, 0115, 011B, 011C):** The readings are within normal ranges, indicating the fuel mixture is being adjusted correctly.\n\n10. **Fuel Trim (PIDs 0106, 0107, 0108, 0109):** The short-term and long-term fuel trims are within acceptable ranges. The slight variations are normal and indicate the ECU is adjusting the fuel mixture to maintain optimal combustion.\n\nOverall, the sensor readings appear normal, and there are no immediate concerns based on the data provided. The vehicle seems to be operating within expected parameters.\n\n**Recommendation:** Continue regular maintenance and monitoring. If you notice any unusual symptoms such as poor fuel economy, rough idling, or check engine light, consider further diagnostics.\n\n**Urgency Level: NORMAL** - No immediate action is required based on the current data.",
+    "scores": {
+      "urgency_correct": 2,
+      "root_cause_identified": 2,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 2,
+      "total": 10,
+      "judge_notes": "Agent correctly identified normal operation with no spurious issues."
+    },
+    "passed": true,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v1_20260415_232956",
+    "case_id": "TUNDRA_005",
+    "vehicle_id": "tundra-2007",
+    "scenario_tag": "diagnosis_accuracy",
+    "prompt_label": "system_prompt_v1",
+    "agent_response": "Based on the OBD2 sensor data provided for your 2007 Toyota Tundra with a 5.7L V8 engine, here is the analysis:\n\n1. **Engine Load (PID 0104):** The last reading is 42%, with a mean of 40%. This is within a typical range for normal driving conditions.\n\n2. **Coolant Temperature (PID 0105):** The last reading is 91\u00b0C, with a mean of 91\u00b0C. This is within the normal operating range for engine coolant temperature.\n\n3. **Intake Manifold Pressure (PID 010B):** The last reading is 100 kPa, with a mean of 98 kPa. These values are reasonable for a naturally aspirated engine at sea level.\n\n4. **Engine RPM (PID 010C):** The last reading is 1800 RPM, with a mean of 1680 RPM. These values are typical for idle or low-speed driving.\n\n5. **Vehicle Speed (PID 010D):** The last reading is 35 km/h, with a mean of 30 km/h. This is consistent with city driving speeds.\n\n6. **Intake Air Temperature (PID 010F):** The last reading is 26\u00b0C, with a mean of 25\u00b0C. This is a normal range for intake air temperature.\n\n7. **Mass Air Flow (PID 0110):** The last reading is 10.2 g/s, with a mean of 9.4 g/s. These values are typical for a V8 engine at low to moderate load.\n\n8. **Throttle Position (PID 0111):** The last reading is 20%, with a mean of 24%. This is within a normal range for partial throttle operation.\n\n9. **Oxygen Sensor Voltage (PIDs 0114, 0115, 011B, 011C):** The readings are within expected ranges, indicating normal operation of the oxygen sensors.\n\n10. **Short Term Fuel Trim (PID 0106):** The last reading is 13.3%, with a mean of 12.8%. This is slightly higher than typical, which could indicate a minor adjustment by the ECU to maintain the air-fuel ratio.\n\n11. **Long Term Fuel Trim (PID 0107):** The last reading is 11.7%, with a mean of 11.4%. This is also slightly higher than typical, suggesting a possible minor issue with fuel delivery or air intake.\n\n12. **Fuel System Status (PIDs 0108, 0109):** The readings are within normal ranges, indicating the fuel system is operating correctly.\n\n### Observations:\n- The **Short Term Fuel Trim** and **Long Term Fuel Trim** values are slightly elevated. While not immediately concerning, they could indicate a minor issue such as a dirty air filter, a slight vacuum leak, or a minor fuel injector imbalance.\n\n### Recommendations:\n- **Check the Air Filter:** Ensure it is clean and not restricting airflow.\n- **Inspect for Vacuum Leaks:** Check hoses and connections for any signs of wear or damage.\n- **Monitor Fuel Efficiency:** If you notice a drop in fuel efficiency, further investigation may be warranted.\n\n### Urgency Level: LOW\nThe vehicle is operating within normal parameters, with only minor adjustments needed. There is no immediate cause for concern, but it would be wise to address the minor issues to maintain optimal performance and efficiency.",
+    "scores": {
+      "urgency_correct": 0,
+      "root_cause_identified": 0,
+      "bogus_value_handled": 0,
+      "data_gap_noted": 2,
+      "vehicle_quirk_cited": 0,
+      "total": 2,
+      "judge_notes": "Agent failed to identify MAF sensor issue and incorrectly assessed urgency as low."
+    },
+    "passed": false,
+    "error": null
+  },
+  {
+    "run_id": "system_prompt_v1_20260415_232956",
+    "case_id": "TUNDRA_006",
+    "vehicle_id": "tundra-2007",
+    "scenario_tag": "urgency_calibration",
+    "prompt_label": "system_prompt_v1",
+    "agent_response": "Based on the OBD2 sensor data provided for your 2007 Toyota Tundra with a 5.7L V8 engine, here is the analysis:\n\n1. **Engine Load (PID 0104):** The last reading is 46%, which is within the normal range for typical driving conditions. No issues here.\n\n2. **Coolant Temperature (PID 0105):** The last reading is 91\u00b0C, which is within the normal operating range for most engines (typically 85-105\u00b0C). This is normal.\n\n3. **Intake Manifold Absolute Pressure (PID 010B):** The last reading is 98 kPa. This is within a normal range for a naturally aspirated engine under load. No concerns here.\n\n4. **Engine RPM (PID 010C):** The last reading is 1900 RPM. This is a typical RPM for cruising speeds. No issues detected.\n\n5. **Vehicle Speed (PID 010D):** The last reading is 38 km/h. This is normal depending on driving conditions.\n\n6. **Intake Air Temperature (PID 010F):** The last reading is 26\u00b0C, which is reasonable depending on ambient conditions. No issues here.\n\n7. **Mass Air Flow (PID 0110):** The last reading is 16.4 g/s. This is within a normal range for your engine size and RPM. No concerns.\n\n8. **Throttle Position (PID 0111):** The last reading is 22%. This is typical for moderate acceleration or cruising. No issues detected.\n\n9. **Oxygen Sensor Voltage (PID 0114, 0115, 011B, 011C):** The readings are within expected ranges for a functioning oxygen sensor. No issues here.\n\n10. **Short Term Fuel Trim Bank 1 (PID 0106):** The last reading is -11.7%. This is slightly on the rich side, but not uncommon. Monitor for any changes.\n\n11. **Short Term Fuel Trim Bank 2 (PID 0107):** The last reading is -9.4%. Similar to Bank 1, this is slightly rich but not alarming. Keep an eye on it.\n\n12. **Long Term Fuel Trim Bank 1 (PID 0108):** The last reading is 12.5%. This indicates a lean condition adjustment. It's slightly high, suggesting the engine is compensating for a lean condition.\n\n13. **Long Term Fuel Trim Bank 2 (PID 0109):** The last reading is 10.9%. Similar to Bank 1, this indicates a lean condition adjustment.\n\n### Recommendations:\n- **Fuel Trim Adjustments:** The long-term fuel trim values suggest the engine is compensating for a lean condition. This could be due to a vacuum leak, dirty MAF sensor, or issues with the fuel delivery system. Consider checking for vacuum leaks and cleaning the MAF sensor.\n- **Monitor Fuel Trim:** Keep an eye on the fuel trim values. If they continue to rise or if you notice performance issues, further investigation may be needed.\n\n### Urgency Level: MEDIUM\nWhile there are no immediate critical issues, the lean condition indicated by the fuel trim values should be addressed to prevent potential long-term engine performance issues. Regular monitoring and maintenance can help avoid more significant problems.",
+    "scores": {
+      "urgency_correct": 0,
+      "root_cause_identified": 0,
+      "bogus_value_handled": 2,
+      "data_gap_noted": 0,
+      "vehicle_quirk_cited": 0,
+      "total": 2,
+      "judge_notes": "Agent failed to identify cross-bank imbalance and set incorrect urgency level."
+    },
+    "passed": false,
+    "error": null
+  }
+]
